@@ -1,6 +1,7 @@
 name: Continuous Integration
 
-on: {}
+#run on every branch push
+on: [push]
 
 jobs:
   prettier:
