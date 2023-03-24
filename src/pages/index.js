@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Days from 'components/layout/Date'
 
 export default function Home() {
 	return (
