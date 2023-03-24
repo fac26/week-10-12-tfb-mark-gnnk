@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Date from 'components/layout/Date'
+import Days from 'components/layout/Date'
 
 export default function Home() {
 	return (
@@ -12,7 +12,7 @@ export default function Home() {
 				alt="home page screenshot"
 			/>
 			<p>
-				<Date type="today" />
+				<Days type="today" />
 			</p>
 		</>
 	)
