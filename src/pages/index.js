@@ -1,5 +1,7 @@
 import Image from 'next/image'
-export default function Home() {
+import Date from 'components/layout/Date'
+
+export default function Home({date}) {
 	return (
 		<>
 			<h1>Home page</h1>
@@ -9,6 +11,9 @@ export default function Home() {
 				height={600}
 				alt="home page screenshot"
 			/>
+				<p>
+				<Date dateString={date} />
+			</p>
 		</>
 	)
 }
