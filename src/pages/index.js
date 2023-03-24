@@ -11,9 +11,6 @@ export default function Home() {
 				height={600}
 				alt="home page screenshot"
 			/>
-			<p>
-				<Days type="today" />
-			</p>
 		</>
 	)
 }
