@@ -1,0 +1,13 @@
+.top-nav {
+	position: fixed;
+	width: 100vw;
+	height: 60px;
+	top: 0;
+	box-shadow: 0 4px 2px -2px gray;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-sizing: border-box;
+	padding: 0 1rem;
+	background: #ffffff;
+}
