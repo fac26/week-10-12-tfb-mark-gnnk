@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import styles from './MobileNav.module.css'
 import Icon from '../UI/Icon'
-export default function MobileNav() {
+
+export default function MobileNav({ activePath }) {
 	return (
 		<nav className={styles['mobile-nav']}>
 			<ul className={styles['nav-list']}>
@@ -11,16 +12,17 @@ export default function MobileNav() {
 							src="/icons/home.png"
 							alt="home page"
 							bgColor="#FFDAA4"
-							isActive={true}
+							isActive={activePath === '/'}
 						/>
 					</Link>
 				</li>
 				<li>
-					<Link href="/days">
+					<Link href="/days/today">
 						<Icon
 							src="/icons/day-tasks.png"
 							alt="home page"
 							bgColor="#A4FFB8"
+							isActive={activePath === '/today'}
 						/>
 					</Link>
 				</li>
@@ -30,6 +32,7 @@ export default function MobileNav() {
 							src="/icons/add-task.png"
 							alt="home page"
 							bgColor="#A4CEFF"
+							isActive={activePath === '/add-task'}
 						/>
 					</Link>
 				</li>
@@ -39,6 +42,7 @@ export default function MobileNav() {
 							src="/icons/history.png"
 							alt="home page"
 							bgColor="#FFA4F6"
+							isActive={activePath === '/days'}
 						/>
 					</Link>
 				</li>{' '}
@@ -48,6 +52,7 @@ export default function MobileNav() {
 							src="/icons/to-avatars.png"
 							alt="home page"
 							bgColor="#FFA4A4"
+							isActive={activePath === '/avatars'}
 						/>
 					</Link>
 				</li>
