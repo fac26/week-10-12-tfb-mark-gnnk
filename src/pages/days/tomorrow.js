@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import React, { useState } from 'react';
-import DayNotArrivedModal from '../../components/modals/DayNotArrivedModal';
+import React, { useState } from 'react'
+import DayNotArrivedModal from '../../components/modals/DayNotArrivedModal'
 
 export default function Tomorrow(props) {
-	const [showModal, setShowModal] = useState(false);
+	const [showModal, setShowModal] = useState(false)
 
 	//add this function after creating the Days and DateCard component
 	// const handleCardClick = () => {
@@ -20,39 +20,38 @@ export default function Tomorrow(props) {
 	// 	}
 	// };
 
-
 	//test Modal with button that calls the setShowModal function to set the showModal state to true
 	const handleOpenModal = () => {
-		setShowModal(true);
-	};
+		setShowModal(true)
+	}
 	//end of testing Modal
 
 	const handleCloseModal = () => {
-		setShowModal(false);
-	};
-	//test the Modal 
-	//button that calls the setShowModal function
-	// to set the showModal state to true
+
+		setShowModal(false)
+	}
+
 	return (
+		//test the Modal
+		//button that calls the setShowModal function
+		// to set the showModal state to true
 		<div>
-			<div>
+			{/* <div>
 				<h1>Tomorrow</h1>
 				<button onClick={handleOpenModal}>Open Modal</button>
-				{showModal && (
-					<DayNotArrivedModal onClose={handleCloseModal} />
-				)}
-			</div>
-			<div>
-				<h1>Challenges for tomorrow</h1>
-				<Image
-					src="/figma/tomorrow.png"
-					width={300}
-					height={600}
-					alt="yesterday screenshot"
-				/>
-			</div>
+				{showModal && <DayNotArrivedModal onClose={handleCloseModal} />}
+			</div> */}
+
+			<h1>Tomorrow's challenges</h1>
+			<Image
+				src="/figma/tomorrow.png"
+				width={300}
+				height={600}
+				alt="yesterday screenshot"
+			/>
 		</div>
-	);
+	)
+
 }
 
 
