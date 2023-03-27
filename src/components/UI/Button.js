@@ -1,28 +1,27 @@
 import styles from './button.module.css'
 
-export default function Button({ type, children }) {
+export default function Button({ type, children, onClick }) {
 	let classes = styles.container
-	let content = children
 
 	switch (type) {
 		case 'add':
-			classes += ` ${styles.add}`
-			content = 'ADD'
+			classes += ` ${styles.add} ${styles.bg_blu}`
+			children = 'ADD'
 			break
 		case 'review':
-			classes += ` ${styles.review}`
-			content = 'Review your tasks'
+			classes += ` ${styles.review} ${styles.bg_blu}`
+			children = 'Review your tasks'
 			break
 		default:
-			content = 'Default'
+			children = 'Default'
 			break
 	}
 
 	return (
 		<button
 			className={classes}
-			onClick={handleClick}>
-			{content}
+			onClick={onClick}>
+			{children}
 		</button>
 	)
 }
