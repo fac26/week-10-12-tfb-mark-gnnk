@@ -1,4 +1,7 @@
 import CircularWrapper from 'components/cards/CircularWrapper'
+
+import ProgressCircle from 'components/cards/ProgressCircle'
+
 import Image from 'next/image'
 import Link from 'next/link'
 //import ProgressCircle from 'components/cards/ProgressCircle'
@@ -16,12 +19,12 @@ export default function Home() {
 			<div className={styles.block}>
 				<h2>bear say hey user name </h2>
 			</div>
-			<div className={styles.block}>
+			<div className={`${styles.block} ${styles.action}`}>
 				<div>
 					<p>Here’s how you’re doing far:</p>
 					<h2>You’re doing great! Keep going</h2>
 				</div>
-				{/* <ProgressCircle persentege={20} /> */}
+				<ProgressCircle percentage={20} />
 			</div>
 			<div className={`${styles.block} ${styles.action}`}>
 				<Link
