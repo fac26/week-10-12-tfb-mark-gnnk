@@ -3,7 +3,7 @@
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 
-function Circle({ percentage }) {
+function ProgressCircle({ percentage }) {
 	return (
 		<div
 			style={{

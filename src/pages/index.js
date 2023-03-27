@@ -11,7 +11,7 @@ export default function Home() {
 				height={600}
 				alt="home page screenshot"
 			/>
-			<ProgressCircle percentage={80} />
+			<ProgressCircle percentage={36} />
 		</>
 	)
 }
