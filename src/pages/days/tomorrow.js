@@ -32,6 +32,7 @@ export default function Tomorrow(props) {
 	};
 
 	return (
+
 		//test the Modal 
 		//button that calls the setShowModal function
 		// to set the showModal state to true
@@ -52,4 +53,16 @@ export default function Tomorrow(props) {
 	// 	)}
 	// </div>
 	//);
+  
+		<>
+			<h1>Tomorrow's challenges</h1>
+			<Image
+				src="/figma/tomorrow.png"
+				width={300}
+				height={600}
+				alt="yesterday screenshot"
+			/>
+		</>
+	)
+
 }

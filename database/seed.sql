@@ -14,7 +14,7 @@ VALUES
 
   
 INSERT INTO
-habit_catagories
+habit_categories
 VALUES
 (1, 'Get Organised'),
 (2, 'Get Prepared'),
@@ -39,7 +39,7 @@ VALUES
 (13, 'Complete a 10 minute walk',3,1),
 (14, 'Complete a 20 minute walk',3,1);
 
-
+INSERT INTO current_tasks VALUES (1, 1, 2);
 
 INSERT INTO 
 avatars
@@ -58,6 +58,13 @@ user_avatars
 VALUES
 (1, 1, 1),
 (2, 1, 2);
+
+INSERT INTO 
+history_tasks
+VALUES
+(1, 1, 3, 1, '2023-03-24'),
+(2, 1, 1, 0, '2023-03-24');
+
 
 COMMIT;
 PRAGMA foreign_keys = ON;
