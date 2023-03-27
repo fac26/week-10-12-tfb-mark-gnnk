@@ -3,7 +3,7 @@ import Image from 'next/image'
 export default function Today() {
 	return (
 		<>
-			<h1>Today</h1>
+			<h1>Today's challenges</h1>
 			<Image
 				src="/figma/today.png"
 				width={300}
