@@ -13,7 +13,7 @@ export default function DesktopNav() {
 				</li>
 
 				<li>
-					<Link href="/add-task">Add a new habit</Link>
+					<Link href="/add-task">Add a new micro-habit</Link>
 				</li>
 				<li>
 					<Link href="/days">Calendar</Link>
