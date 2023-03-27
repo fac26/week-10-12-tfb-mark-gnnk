@@ -1,10 +1,6 @@
-//reusable button component using button css module
-import { useState } from 'react'
 import styles from './button.module.css'
 
 export default function Button({ type, children }) {
-	const [isActive, setIsActive] = useState(false)
-
 	let classes = styles.container
 	let content = children
 
@@ -20,10 +16,6 @@ export default function Button({ type, children }) {
 		default:
 			content = 'Default'
 			break
-	}
-
-	const handleClick = () => {
-		setIsActive(true)
 	}
 
 	return (
