@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS user_avatars (
   avatar_id INTEGER REFERENCES avatars(id)
 );
 
-CREATE TABLE IF NOT EXISTS habit_catagories (
+CREATE TABLE IF NOT EXISTS habit_categories (
     id INTEGER PRIMARY KEY, 
     name TEXT  
 );
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS habit_catagories (
 CREATE TABLE IF NOT EXISTS tasks (
     id INTEGER PRIMARY KEY,
     name TEXT,
-    catergory_id INTEGER REFERENCES habit_catagories(id),
+    category_id INTEGER REFERENCES habit_categories(id),
     points INTEGER
 );
 
