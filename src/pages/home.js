@@ -1,4 +1,4 @@
-import Circle from 'components/cards/PercentageCircle'
+import Circle from 'components/cards/ProgressCircle'
 import Image from 'next/image'
 
 export default function Home() {
@@ -13,7 +13,6 @@ export default function Home() {
 					alt="days screenshot"
 				/>
 			</div>
-			
 		</>
 	)
 }

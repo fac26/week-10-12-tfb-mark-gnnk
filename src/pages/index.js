@@ -1,4 +1,4 @@
-import Circle from 'components/cards/PercentageCircle'
+import ProgressCircle from 'components/cards/ProgressCircle'
 import Image from 'next/image'
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
 				height={600}
 				alt="home page screenshot"
 			/>
-			<Circle percentage={80} />
+			<ProgressCircle percentage={80} />
 		</>
 	)
 }

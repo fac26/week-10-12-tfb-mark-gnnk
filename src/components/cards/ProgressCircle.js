@@ -25,4 +25,4 @@ function Circle({ percentage }) {
 		</div>
 	)
 }
-export default Circle
+export default ProgressCircle
