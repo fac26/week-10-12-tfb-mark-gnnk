@@ -5,12 +5,20 @@ BEGIN;
 INSERT INTO
 users
 VALUES
-(1, 'test@gmail.com', '123', 'xxxxx');
+(1, 'test@gmail.com', '123', 'abcd1'),
+(2, 'test1@gmail.com', '123', 'abcd2'),
+(3, 'test2@gmail.com', '123', 'abcd3'),
+(4, 'test3@gmail.com', '123', 'abcd4'),
+(5, 'test4@gmail.com', '123', 'abcd5');
 
 INSERT INTO
 users_profiles
 VALUES
-(1, 1, 1, 100);
+(1, 1, 1,'Georgia',0),
+(2, 2, 2,'Karol',0),
+(3, 3, 3,'Konstantina',0),
+(4, 4, 4,'Natalia',0),
+(5, 5, 5,'Niete',0);
 
   
 INSERT INTO
@@ -39,7 +47,7 @@ VALUES
 (13, 'Complete a 10 minute walk',3,1),
 (14, 'Complete a 20 minute walk',3,1);
 
-INSERT INTO current_tasks VALUES (1, 1, 2);
+INSERT INTO current_tasks VALUES (1, 1, 2, '2023-03-24');
 
 INSERT INTO 
 avatars

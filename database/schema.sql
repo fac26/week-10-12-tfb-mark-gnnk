@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS users_profiles (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   user_id INTEGER REFERENCES users(id),
   user_avatar INTEGER REFERENCES users_avatars(id),
+  user_name TEXT, 
   user_points INTEGER
 );
 
@@ -45,7 +46,8 @@ CREATE TABLE IF NOT EXISTS tasks (
 CREATE TABLE IF NOT EXISTS current_tasks (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER REFERENCES users(id),
-    task_id INTEGER REFERENCES tasks(id)
+    task_id INTEGER REFERENCES tasks(id),
+    date_task_added DATE
 );
 
 CREATE TABLE IF NOT EXISTS history_tasks (
