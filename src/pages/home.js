@@ -2,14 +2,14 @@ import Image from 'next/image'
 
 export default function Home() {
 	return (
-		<>
-			<h1>Home page</h1>
+		<div>
+			<h1>Home</h1>
 			<Image
-				src="/figma/home-page.png"
+				src="/figma/homepage.png"
 				width={300}
 				height={600}
-				alt="home page screenshot"
+				alt="days screenshot"
 			/>
-		</>
+		</div>
 	)
 }

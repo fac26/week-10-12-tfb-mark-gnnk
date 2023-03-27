@@ -7,11 +7,13 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"seed": "node database/seed.js"
 	},
 	"dependencies": {
 		"@next/font": "13.2.4",
 		"better-sqlite3": "^8.2.0",
+		"date-fns": "^2.29.3",
 		"eslint": "8.36.0",
 		"eslint-config-next": "13.2.4",
 		"next": "13.2.4",
