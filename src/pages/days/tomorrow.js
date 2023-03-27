@@ -30,39 +30,29 @@ export default function Tomorrow(props) {
 	const handleCloseModal = () => {
 		setShowModal(false);
 	};
-
+	//test the Modal 
+	//button that calls the setShowModal function
+	// to set the showModal state to true
 	return (
-
-		//test the Modal 
-		//button that calls the setShowModal function
-		// to set the showModal state to true
 		<div>
-			<h1>Tomorrow</h1>
-			<button onClick={handleOpenModal}>Open Modal</button>
-			{showModal && (
-				<DayNotArrivedModal onClose={handleCloseModal} />
-			)}
+			<div>
+				<h1>Tomorrow</h1>
+				<button onClick={handleOpenModal}>Open Modal</button>
+				{showModal && (
+					<DayNotArrivedModal onClose={handleCloseModal} />
+				)}
+			</div>
+			<div>
+				<h1>Challenges for tomorrow</h1>
+				<Image
+					src="/figma/tomorrow.png"
+					width={300}
+					height={600}
+					alt="yesterday screenshot"
+				/>
+			</div>
 		</div>
 	);
-	//code after creating the DateItem,Day components
-	// <div>
-	// 	{/* Render DateCard for tomorrow's day here */}
-	// 	<button onClick={handleCardClick}>Click for tomorrow's day</button>
-	// 	{showModal && (
-	// 		<DayNotArrivedModal onClose={handleCloseModal} />
-	// 	)}
-	// </div>
-	//);
-  
-		<>
-			<h1>Tomorrow's challenges</h1>
-			<Image
-				src="/figma/tomorrow.png"
-				width={300}
-				height={600}
-				alt="yesterday screenshot"
-			/>
-		</>
-	)
-
 }
+
+
