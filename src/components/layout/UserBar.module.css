@@ -1,0 +1,8 @@
+.user-info {
+	width: 70px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-left: auto;
+	/* display on the right */
+}

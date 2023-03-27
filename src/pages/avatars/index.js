@@ -5,7 +5,7 @@ export default function AddHabits() {
 		<>
 			<h1>Days</h1>
 			<Image
-				src="/figma/add-task.png"
+				src="/figma/avatars-shop.png"
 				width={300}
 				height={600}
 				alt="days screenshot"
