@@ -27,6 +27,7 @@ export default function Tomorrow(props) {
 	//end of testing Modal
 
 	const handleCloseModal = () => {
+
 		setShowModal(false)
 	}
 
@@ -50,4 +51,7 @@ export default function Tomorrow(props) {
 			/>
 		</div>
 	)
+
 }
+
+
