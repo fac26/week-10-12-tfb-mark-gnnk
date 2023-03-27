@@ -9,14 +9,15 @@ export default function DesktopNav() {
 					<Link href="/">Home</Link>
 				</li>
 				<li>
-					<Link href="/days">Days</Link>
+					<Link href="/days/today">Today's challenges</Link>
+				</li>
+
+				<li>
+					<Link href="/add-task">Add a new habit</Link>
 				</li>
 				<li>
-					<Link href="/add-task">Add new habit</Link>
+					<Link href="/days">Calendar</Link>
 				</li>
-				<li>
-					<Link href="/days">History</Link>
-				</li>{' '}
 				<li>
 					<Link href="/avatars">Avatar shop</Link>
 				</li>

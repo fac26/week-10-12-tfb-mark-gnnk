@@ -10,7 +10,7 @@ export default function MobileNav({ activePath }) {
 					<Link href="/">
 						<Icon
 							src="/icons/home.png"
-							alt="home page"
+							alt="home page icon"
 							bgColor="#FFDAA4"
 							isActive={activePath === '/'}
 						/>
@@ -20,7 +20,7 @@ export default function MobileNav({ activePath }) {
 					<Link href="/days/today">
 						<Icon
 							src="/icons/day-tasks.png"
-							alt="home page"
+							alt="todays tasks icon"
 							bgColor="#A4FFB8"
 							isActive={activePath === '/today'}
 						/>
@@ -30,7 +30,7 @@ export default function MobileNav({ activePath }) {
 					<Link href="/add-task">
 						<Icon
 							src="/icons/add-task.png"
-							alt="home page"
+							alt="add task icon"
 							bgColor="#A4CEFF"
 							isActive={activePath === '/add-task'}
 						/>
@@ -40,7 +40,7 @@ export default function MobileNav({ activePath }) {
 					<Link href="/days">
 						<Icon
 							src="/icons/history.png"
-							alt="home page"
+							alt="yesterday-today-tomorrow icon"
 							bgColor="#FFA4F6"
 							isActive={activePath === '/days'}
 						/>
@@ -50,7 +50,7 @@ export default function MobileNav({ activePath }) {
 					<Link href="/avatars">
 						<Icon
 							src="/icons/to-avatars.png"
-							alt="home page"
+							alt="avatar shop icon"
 							bgColor="#FFA4A4"
 							isActive={activePath === '/avatars'}
 						/>
