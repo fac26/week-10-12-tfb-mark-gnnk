@@ -18,7 +18,7 @@ function CircularWrapper({
 		<div
 			className={styles.circleWrapper}
 			style={wrapperStyle}>
-			<div>{children}</div>
+			{children}
 		</div>
 	)
 }

@@ -1,0 +1,21 @@
+.hey-home {
+	color: aqua;
+}
+
+.block {
+	height: 25vh;
+	width: 90%;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.action {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.action-item {
+	text-decoration: none;
+	color: black;
+}

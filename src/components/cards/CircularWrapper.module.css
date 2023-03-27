@@ -3,9 +3,18 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 	overflow: 'wrap';
 }
 .circleWrapper > * {
-	width: 100%;
-	overflow-wrap: 'break-word';
+	font-size: 0.8rem;
+	text-align: center;
+	width: 90%;
+	margin: 0;
+}
+
+.circleWrapper h2 {
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 18px;
 }
