@@ -1,4 +1,5 @@
 import ProgressCircle from 'components/cards/ProgressCircle'
+import Bear from 'components/UI/Bear'
 import Image from 'next/image'
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
 				height={600}
 				alt="home page screenshot"
 			/>
-			<ProgressCircle percentage={36} />
+			<Bear></Bear>
 		</>
 	)
 }
