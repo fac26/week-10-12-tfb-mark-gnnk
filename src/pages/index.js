@@ -1,6 +1,9 @@
 import Circle from 'components/cards/ProgressCircle'
 import Image from 'next/image'
 import Link from 'next/link'
+import DayCard from 'components/days/DayCard'
+
+
 export default function Home() {
 	return (
 		<>
@@ -11,6 +14,12 @@ export default function Home() {
 				height={600}
 				alt="days screenshot"
 			/>
+
+			<DayCard type="yesterday"  />
+			<DayCard type="today"  />
+			<DayCard type="tomorrow"  />
+			
 		</>
 	)
 }
+
