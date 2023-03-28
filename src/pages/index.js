@@ -15,9 +15,6 @@ export default function Home() {
 				alt="days screenshot"
 			/>
 
-			<DayCard type="yesterday"  />
-			<DayCard type="today"  />
-			<DayCard type="tomorrow"  />
 			
 		</>
 	)
