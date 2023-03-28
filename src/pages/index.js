@@ -1,7 +1,7 @@
 import Circle from 'components/cards/ProgressCircle'
 import Image from 'next/image'
 import Link from 'next/link'
-import DayCard from 'components/days/DayCard'
+
 
 
 export default function Home() {
