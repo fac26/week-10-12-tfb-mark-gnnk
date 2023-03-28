@@ -6,10 +6,10 @@ export default function DesktopNav() {
 		<nav className="">
 			<ul className={styles['desktop-list']}>
 				<li>
-					<Link href="/">Home</Link>
+					<Link href="/home">Home</Link>
 				</li>
 				<li>
-					<Link href="/days/today">Today's challenges</Link>
+					<Link href="/challenges/today">Today challenges</Link>
 				</li>
 
 				<li>
