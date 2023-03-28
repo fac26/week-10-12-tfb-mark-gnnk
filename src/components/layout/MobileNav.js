@@ -7,17 +7,17 @@ export default function MobileNav({ activePath }) {
 		<nav className={styles['mobile-nav']}>
 			<ul className={styles['nav-list']}>
 				<li>
-					<Link href="/">
+					<Link href="/home">
 						<Icon
 							src="/icons/home.png"
 							alt="home page icon"
 							bgColor="#FFDAA4"
-							isActive={activePath === '/'}
+							isActive={activePath === '/home'}
 						/>
 					</Link>
 				</li>
 				<li>
-					<Link href="/days/today">
+					<Link href="/challenges/today">
 						<Icon
 							src="/icons/day-tasks.png"
 							alt="todays tasks icon"

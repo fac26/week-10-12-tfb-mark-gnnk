@@ -5,7 +5,7 @@ function SpeechBubble({ children, speechBg }) {
 		<div
 			className={`${styles.bubble} ${styles['bubble-bottom-left']}`}
 			style={{ '--bubble-bg': speechBg }} //add style to css prop
-			contenteditable>
+		>
 			{children}
 		</div>
 	)

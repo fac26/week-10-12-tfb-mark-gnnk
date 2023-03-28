@@ -6,9 +6,10 @@ import TopBar from './TopBar'
 import styles from './Layout.module.css'
 import { useRouter } from 'next/router'
 export default function Layout({ children }) {
-	const [isDesktop, setIsDesktop] = useState(false)
-	const [activePath, setActivePath] = useState('/')
 	const path = useRouter()
+	const [isDesktop, setIsDesktop] = useState(false)
+	const [activePath, setActivePath] = useState(path.asPath)
+
 	useEffect(() => {
 		const mediaQuery = window.matchMedia('(min-width: 768px)')
 		setIsDesktop(mediaQuery.matches)
@@ -33,6 +34,10 @@ export default function Layout({ children }) {
 			path.events.off('routeChangeComplete', onChangePath)
 		}
 	}, [path])
+
+	if (activePath === '/') {
+		return <div className={styles.main}>{children}</div>
+	}
 	return (
 		<>
 			<TopBar
