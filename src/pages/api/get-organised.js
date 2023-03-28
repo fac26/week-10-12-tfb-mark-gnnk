@@ -1,4 +1,4 @@
-import { getAllCurrentTasksByCategory } from 'models/tasks'
+import { getAllCurrentTasksByCategory } from 'model/tasks'
 
 export default async function handler(req, res) {
 	try {
