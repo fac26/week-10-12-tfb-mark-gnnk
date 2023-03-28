@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import SpeachBubble from './SpeachBubble'
+import SpeechBubble from './SpeechBubble'
 import styles from './Adviser.module.css'
 function Adviser({ src, text, speachBg }) {
 	return (
 		<div className={styles.container}>
-			<SpeachBubble speachBg={speachBg}>{text}</SpeachBubble>
+			<SpeechBubble speachBg={speachBg}>{text}</SpeechBubble>
 			<Image
 				src={src}
 				alt="bear"

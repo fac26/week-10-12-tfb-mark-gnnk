@@ -1,6 +1,6 @@
-import styles from './SpeachBubble.module.css'
+import styles from './SpeechBubble.module.css'
 
-function SpeachBubble({ children, speachBg }) {
+function SpeechBubble({ children, speachBg }) {
 	return (
 		<div
 			className={`${styles.bubble} ${styles['bubble-bottom-left']}`}
@@ -11,4 +11,4 @@ function SpeachBubble({ children, speachBg }) {
 	)
 }
 
-export default SpeachBubble
+export default SpeechBubble
