@@ -1,0 +1,16 @@
+import Circle from 'components/cards/ProgressCircle'
+import Image from 'next/image'
+import Link from 'next/link'
+export default function Home() {
+	return (
+		<>
+			<Link href="/home">Ready? Let&rsquo;s go</Link>
+			<Image
+				src="/figma/landing.png"
+				width={300}
+				height={600}
+				alt="days screenshot"
+			/>
+		</>
+	)
+}
