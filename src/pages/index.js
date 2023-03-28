@@ -18,7 +18,7 @@ export default function Home() {
 			<Adviser
 				src="/icons/bear.png"
 				text="Hey [userName], pick one of the options below to get started."
-				speachBg={`var(--main-beige)`}
+				speechBg={`var(--main-beige)`}
 			/>
 
 			<div className={`${styles.flex} ${styles.center}`}>
