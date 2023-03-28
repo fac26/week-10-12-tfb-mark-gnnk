@@ -62,6 +62,18 @@ export function getUncompletedTasksByDate(userId, date) {
 	return select_uncompleted_by_habits_and_by_day.all(userId, date)
 }
 
+const insert_task = db.prepare(
+	/*sql*/
+	`
+		INSERT INTO current_tasks (user_id, task_id)
+		VALUES (?, ?)
+	`
+)
+
+export function insertTask(userId, taskId) {
+	return insert_task.run(userId, taskId)
+}
+
 const uncompletedTbyDate = getUncompletedTasksByDate(1, '2023-03-24')
 console.log(uncompletedTbyDate, ' all uncompleted tasks by date')
 const currentTbyUserid = getAllCurrentTasks(1)
