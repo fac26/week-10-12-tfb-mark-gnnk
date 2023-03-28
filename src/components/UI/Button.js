@@ -1,27 +1,21 @@
-import styles from './button.module.css'
+import styles, { container } from './button.module.css'
 
-export default function Button({ type, children, onClick }) {
-	let classes = styles.container
-
-	switch (type) {
-		case 'add':
-			classes += ` ${styles.add} ${styles.bg_blu}`
-			children = 'ADD'
-			break
-		case 'review':
-			classes += ` ${styles.review} ${styles.bg_blu}`
-			children = 'Review your tasks'
-			break
-		default:
-			children = 'Default'
-			break
-	}
+export default function Button({
+	children,
+	onClick,
+	background,
+	scaling,
+	weight
+}) {
+	if (!background) background = 'bg_blu'
+	if (!scaling) scaling = 'small'
+	if (!weight) weight = 'normal'
 
 	return (
 		<button
-			className={classes}
+			className={`${container} ${styles[background]} ${styles[scaling]} ${styles[weight]}`}
 			onClick={onClick}>
-			{children}
+			{children || 'Button'}
 		</button>
 	)
 }

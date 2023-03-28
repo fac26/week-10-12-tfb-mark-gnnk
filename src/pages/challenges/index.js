@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { getAllHabits } from '../../../model/habits'
+import { getAllHabits } from 'model/habits'
 
 export default function Challenges({ tasks, habits }) {
 	console.log(habits)
