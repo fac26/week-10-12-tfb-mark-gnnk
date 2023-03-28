@@ -1,22 +1,32 @@
-.hey-home {
-	color: aqua;
-}
-
-.block {
-	height: 25vh;
-	width: 90%;
-	max-width: 600px;
+.main {
 	margin-left: auto;
 	margin-right: auto;
+	width: 90%;
+	max-width: 600px;
+	min-height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
 
-.action {
+.flex {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
 }
 
-.action-item {
-	text-decoration: none;
+.flex-item {
+	margin: 20px auto;
 	color: black;
+}
+.center {
+	border-top: 2px solid #a0a0a0;
+	border-bottom: 2px solid #a0a0a0;
+	padding: 1.5rem 0;
+	min-height: 30vh;
+}
+.text-box {
+	text-align: center;
+	max-width: 200px;
 }
