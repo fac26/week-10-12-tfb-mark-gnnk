@@ -1,57 +1,64 @@
 import CircularWrapper from 'components/cards/CircularWrapper'
 
 import ProgressCircle from 'components/cards/ProgressCircle'
-
-import Image from 'next/image'
+import Adviser from 'components/adviser/Adviser'
 import Link from 'next/link'
-//import ProgressCircle from 'components/cards/ProgressCircle'
 import styles from '../styles/Index.module.css'
+import Image from 'next/image'
 export default function Home() {
 	return (
-		<>
-			{/* <h1 className={styles['hey-home']}>Home page</h1>
-			<Image
+		<div className={styles.main}>
+			{/* <Image
 				src="/figma/home-page.png"
 				width={300}
 				height={600}
 				alt="home page screenshot"
 			/> */}
-			<div className={styles.block}>
-				<h2>bear say hey user name </h2>
-			</div>
-			<div className={`${styles.block} ${styles.action}`}>
-				<div>
+
+			<Adviser
+				src="/icons/bear.png"
+				text="Hey [userName], pick one of the options below to get started."
+				speechBg={`var(--main-beige)`}
+			/>
+
+			<div className={`${styles.flex} ${styles.center}`}>
+				<div className={styles['text-box']}>
 					<p>Here’s how you’re doing far:</p>
 					<h2>You’re doing great! Keep going</h2>
 				</div>
 				<ProgressCircle percentage={20} />
 			</div>
-			<div className={`${styles.block} ${styles.action}`}>
+			<div className={styles.flex}>
 				<Link
 					href="/days/today"
-					className={styles['action-item']}>
+					className={styles['flex-item']}>
 					<CircularWrapper
-						diameter={100}
+						diameter={150}
 						borderWidth={8}
 						borderColour="#007CAB"
 						bgColor="#FFFFFF">
 						<h2>CHALLENGES</h2>
-						<p>Take on some challenges for today</p>
+						<p>
+							Take on some <span>challenges</span> for today
+						</p>
 					</CircularWrapper>
 				</Link>
 				<Link
 					href="/days"
-					className={styles['action-item']}>
+					className={styles['flex-item']}>
 					<CircularWrapper
-						diameter={100}
+						diameter={150}
 						borderWidth={8}
 						borderColour="#C96563"
 						bgColor="#FFFFFF">
 						<h2>DAYS</h2>
-						<p>See your progress on a calendar</p>
+						<p>
+							See your
+							<span> progress on a</span> calendar
+						</p>
 					</CircularWrapper>
 				</Link>
 			</div>
-		</>
+		</div>
 	)
 }
