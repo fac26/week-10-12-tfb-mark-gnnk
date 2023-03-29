@@ -5,8 +5,10 @@ import Adviser from 'components/adviser/Adviser'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
-export default function Home() {
-	//console.log(score, ' this is from home page')
+export default function Home({ score }) {
+	const toFixedScore = Math.trunc(score * 100)
+
+	console.log(toFixedScore, ' this is from home page')
 	return (
 		<div className={styles.main}>
 			{/* <Image
@@ -27,7 +29,7 @@ export default function Home() {
 					<p>Here’s how you’re doing far:</p>
 					<h2>You’re doing great! Keep going</h2>
 				</div>
-				<ProgressCircle percentage={20} />
+				<ProgressCircle percentage={toFixedScore} />
 			</div>
 			<div className={styles.flex}>
 				<Link
@@ -78,7 +80,7 @@ export async function getServerSideProps(context) {
 
 	return {
 		props: {
-			score
+			score: score.score
 		}
 	}
 }

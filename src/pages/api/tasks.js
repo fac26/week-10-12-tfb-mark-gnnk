@@ -37,15 +37,16 @@ export default async function handler(req, res) {
 
 	const today_tasks = await getAllTodayTasks(userId, date)
 	if (today_tasks.length > 0) {
-		return res.status(200).json({ message: today_tasks })
+		const uncompletedTasks = today_tasks.filter((task) => task.status === 1)
+		const score = uncompletedTasks.length / today_tasks.length
+		console.log(score)
+		return res.status(200).json({ message: today_tasks, score: score })
 	}
 
 	try {
 		const tasks = getAllCurrentTasks(userId)
 		const result = fillHistoryTable(date)
-		return res
-			.status(200)
-			.json({ message: 'history_tasks table populated successfully' })
+		return res.status(200).json({ score: 0 })
 	} catch (err) {
 		console.log(req.body)
 		res.status(500).json({ error: 'Internal server error' })
