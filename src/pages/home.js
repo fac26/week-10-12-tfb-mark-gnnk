@@ -68,8 +68,9 @@ export async function getServerSideProps(context) {
 	//const userId = context.req.session.userId
 
 	const userId = 1
+	const today = new Date().toISOString().split('T')[0]
 	const response = await fetch(
-		`http://localhost:3000/api/tasks?userId=${userId}`
+		`http://localhost:3000/api/tasks?userId=${userId}&date=${today}`
 	)
 
 	const score = await response.json()
