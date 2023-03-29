@@ -20,8 +20,10 @@ function ProgressCircle({
 			<CircularProgressbar
 				value={percentage}
 				text={`${percentage}%`}
+				background
 				strokeWidth={strokeWidth}
 				styles={buildStyles({
+					backgroundColor: 'white',
 					textColor,
 					pathColor,
 					trailColor

@@ -1,23 +1,32 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { getAllHabits } from '../../../model/habits'
+import { getAllHabits } from '../../model/habits'
 import Days from 'components/layout/Days'
 import ProgressCircle from 'components/cards/ProgressCircle'
-import styles from './Challenges.module.css'
+import styles from '../../styles/Challenges.module.css'
+import Rectangle from 'components/cards/Rectangle'
 
 export default function Challenges({ tasks, habits }) {
 	console.log(habits)
 	return (
 		<div className={styles.background}>
 			<div className={styles.container}>
-				<div className={styles.heading}>
-					<p>Your challenges for:</p>
+				<div>
+					<p className={styles.heading}>Your challenges for:</p>
 					<div className={styles.date}>
 						<Days type={'today'} />
+						<div className={styles.divider}></div>
 					</div>
 				</div>
 				<div>
-					<ProgressCircle percentage={50} />
+					<ProgressCircle
+						percentage={75}
+						textColor="black"
+						pathColor="var(--main-lavendar)"
+						trailColor="transparent"
+						width={110}
+						strokeWidth={10}
+					/>
 				</div>
 			</div>
 			<div className={styles.challengeHeader}>
@@ -28,22 +37,32 @@ export default function Challenges({ tasks, habits }) {
 				{habits.map((habit) => (
 					<li key={habit.id}>
 						<Link
-							href={`/challenges/${habit.name.toLowerCase().replace(' ', '-')}`}
-							className={styles.challengeBox}>
-							<div>
-								<h3>{habit.name}</h3>
-								<p>Micro-habits to help you {habit.name}</p>
-							</div>
-							<div>
-								<ProgressCircle
-									percentage={50}
-									textColor="red"
-									pathColor="var(--main-lavendar)"
-									trailColor="transparent"
-									width={75}
-									strokeWidth={8}
-								/>
-							</div>
+							href={`/challenges/${habit.name
+								.toLowerCase()
+								.replace(' ', '-')}`}>
+							<Rectangle
+								backgroundColor="#FFF8F0"
+								width={320}
+								display="flex"
+								justifyContent="space-around"
+								textAlign="center">
+								<div className={styles.challengeContainer}>
+									<h3 className={styles.challengeTitle}>{habit.name}</h3>
+									<p className={styles.challengeDesc}>
+										Micro-habits to help you {habit.name.toLowerCase()}
+									</p>
+								</div>
+								<div>
+									<ProgressCircle
+										percentage={75}
+										textColor="black"
+										pathColor="var(--main-lavendar)"
+										trailColor="transparent"
+										width={70}
+										strokeWidth={10}
+									/>
+								</div>
+							</Rectangle>
 						</Link>
 					</li>
 				))}
