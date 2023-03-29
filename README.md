@@ -196,6 +196,8 @@ We will ensure our project is accessible to as many users as possible by:
 
 ### Test
 
+<details>
+
 #### How did you verify your project worked correctly?
 
 - We used Cypress end-to-end testing to verify that our project functions correctly.
@@ -276,6 +278,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 Please `clone` this repo to your local machine
 
 Please run `npm install` to install all dependencies
+
+Please run `npm run seed` to seed the database 
 
 Please run `npm run dev` to run the app
 
