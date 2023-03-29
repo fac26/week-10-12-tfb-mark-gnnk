@@ -30,6 +30,19 @@ export function getAllCurrentTasksByCategory(id, habitId) {
 	return select_all_current_tasks_by_category.all(id, habitId)
 }
 
+const select_all_today_tasks = db.prepare(
+	/*sql*/
+	`
+      SELECT *
+      FROM history_task
+      WHERE user_id = ? AND date = ?
+    `
+)
+
+export function getAllTodayTasks(id, date) {
+	return select_all_today_tasks.all(id, date)
+}
+
 const select_completed_by_habits_and_by_day = db.prepare(
 	/*sql*/
 	`

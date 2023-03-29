@@ -5,7 +5,8 @@ import Adviser from 'components/adviser/Adviser'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
-export default function Home() {
+export default function Home({ score }) {
+	console.log(score, ' this is from home page')
 	return (
 		<div className={styles.main}>
 			{/* <Image
@@ -61,4 +62,23 @@ export default function Home() {
 			</div>
 		</div>
 	)
+}
+
+export async function getServerSideProps(context) {
+	//const userId = context.req.session.userId
+
+	const userId = 1
+	// Fetch the tasks data for the user from the API endpoint
+
+	const response = await fetch(
+		`http://localhost:3000/api/tasks?userId=${userId}`
+	)
+	const score = await response.json()
+	console.log(score, ' home page getServerSideProps')
+
+	return {
+		props: {
+			score
+		}
+	}
 }
