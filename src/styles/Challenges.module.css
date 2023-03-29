@@ -1,0 +1,75 @@
+.background {
+	background-image: url('/backgrounds/Background-Mobile.png');
+	height: 100vh;
+	width: 100vw;
+	object-fit: fill;
+	margin-top: -1.5rem;
+	position: fixed;
+	z-index: -1;
+	background-repeat: no-repeat;
+}
+
+.container {
+	display: flex;
+	padding-top: 3rem;
+	align-items: center;
+	width: 85%;
+	max-width: 600px;
+	margin: auto;
+	justify-content: space-between;
+}
+
+.heading {
+	font-size: 10pt;
+}
+
+.date {
+	font-size: 25pt;
+	font-weight: 900;
+	margin-top: 0.75rem;
+	padding-right: 10px;
+}
+
+.divider {
+	border-bottom: solid 5px black;
+	width: 100%;
+	max-width: 600px;
+	margin-top: 0.25rem;
+}
+
+.challengeHeader {
+	margin: 1.5rem 0;
+	text-align: center;
+	font-size: 10pt;
+}
+
+.challengeContainer {
+	width: 10rem;
+}
+
+.challengeTitle {
+	font-size: 13pt;
+	font-weight: 600;
+}
+
+.challengeDesc {
+	font-size: 10pt;
+}
+
+.habitContainer {
+	margin-left: auto;
+	margin-right: auto;
+	list-style: none;
+}
+
+@media (min-width: 416px) and (max-width: 1920px) {
+	.background {
+		background-image: url('/backgrounds/Background-Desktop.png');
+		height: 100vh;
+		width: 100vw;
+		object-fit: fill;
+		margin-top: -1.5rem;
+		position: fixed;
+		z-index: -1;
+	}
+}
