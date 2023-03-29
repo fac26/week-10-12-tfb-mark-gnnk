@@ -3,7 +3,7 @@ import styles from './DesktopNav.module.css'
 
 export default function DesktopNav() {
 	return (
-		<nav className="">
+		<nav className={styles['desktop-nav']}>
 			<ul className={styles['desktop-list']}>
 				<li>
 					<Link href="/home">Home</Link>
