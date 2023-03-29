@@ -1,6 +1,24 @@
 import Image from 'next/image'
+import ChallengeCategoryList from '../../components/challenges/ChallengeCategoryList'
 
 export default function GetOrganized({ tasks }) {
+	const completedHandler = async (taskId) => {
+		const response = await fetch('http://localhost:3000/api/update-status', {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ taskId: 1, date: '2023-03-24' })
+		})
+
+		if (response.ok) {
+			console.log(`Task ${taskId} has been marked as completed`)
+		} else {
+			console.error(response.statusText)
+		}
+		console.log(taskId, ' from pages')
+	}
+
 	console.log(tasks)
 	return (
 		<>
@@ -11,16 +29,10 @@ export default function GetOrganized({ tasks }) {
 				height={600}
 				alt="get organized challenge screenshot"
 			/>
-			<ul>
-				{tasks.map((task) => (
-					<li
-						key={task.id}
-						id={task.id}>
-						<h2>{task.name}</h2>
-						<p>{task.category_name}</p>
-					</li>
-				))}
-			</ul>
+			<ChallengeCategoryList
+				tasks={tasks}
+				onCompleted={completedHandler}
+			/>
 		</>
 	)
 }
