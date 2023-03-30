@@ -23,8 +23,8 @@ export default function Days({ type = 'today' }) {
 	}
 
 	return (
-		<p>
+		<span>
 			<time dateTime={date.toISOString()}>{format(date, 'EEEE do MMMM')}</time>
-		</p>
+		</span>
 	)
 }
