@@ -25,7 +25,7 @@ export default function GetHealthy({ tasks }) {
 		<div className="bg">
 			<HeaderCard
 				preHeaderText="Your challenges for:"
-				header="Get organised"
+				header="Get healthy"
 				percentage={75}
 				textColor="black"
 				pathColor="var(--main-lavendar)"
