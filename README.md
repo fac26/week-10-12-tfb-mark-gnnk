@@ -9,6 +9,18 @@ Contributors
 [Natalia Rusu](https://github.com/nataliarusu)
 [Niete Ratilal](https://github.com/Psydwinder)
 
+## Clone Repo
+
+Please `clone` this repo to your local machine
+
+Please run `npm install` to install all dependencies
+
+Please run `npm run seed` to seed the database 
+
+Please run `npm run dev` to run the app
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 ## Introduction
 
 <details>
@@ -266,24 +278,6 @@ Describes how they have maintained a productive, professional and secure working
 `
 
 </details>
-
-## Deployment
-
-Please follow this link to our [deployed site](https://week7-9-artbadge.vercel.app)
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Clone Repo
-
-Please `clone` this repo to your local machine
-
-Please run `npm install` to install all dependencies
-
-Please run `npm run seed` to seed the database 
-
-Please run `npm run dev` to run the app
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Built With
 
