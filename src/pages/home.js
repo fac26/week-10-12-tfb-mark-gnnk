@@ -7,34 +7,35 @@ import styles from '../styles/Home.module.css'
 import Image from 'next/image'
 export default function Home() {
 	return (
-		<div className={styles.main}>
-			{/* <Image
-				src="/figma/home-page.png"
-				width={300}
-				height={600}
-				alt="home page screenshot"
-			/> */}
-
-			<Adviser
-				src="/icons/bear.png"
-				text="Hey [userName], pick one of the options below to get started."
-				speechBg={`var(--main-beige)`}
-			/>
-
-			<div className={`${styles.flex} ${styles.center}`}>
+		<div className="bg">
+			<div className={`${styles.adviser} main-container`}>
+				<Adviser
+					src="/icons/bear.png"
+					text="Hey [userName], pick one of the options below to get started."
+					speechBg={`var(--main-white)`}
+				/>
+			</div>
+			<div className={`${styles.flex} ${styles.center} main-container`}>
 				<div className={styles['text-box']}>
 					<p>Here’s how you’re doing far:</p>
 					<h2>You’re doing great! Keep going</h2>
 				</div>
-				<ProgressCircle percentage={20} />
+				<ProgressCircle
+					percentage={20}
+					textColor="var(--main-text-black)"
+					pathColor="var(--main-dark-violet)"
+					trailColor="var(--main-light-violet)"
+					width={160}
+					strokeWidth={11}
+				/>
 			</div>
-			<div className={styles.flex}>
+			<div className={`${styles.flex} main-container`}>
 				<Link
 					href="/challenges/today"
 					className={styles['flex-item']}>
 					<CircularWrapper
-						diameter={150}
-						borderWidth={8}
+						diameter={160}
+						borderWidth={12}
 						borderColour="#007CAB"
 						bgColor="#FFFFFF">
 						<h2>CHALLENGES</h2>
@@ -47,8 +48,8 @@ export default function Home() {
 					href="/days"
 					className={styles['flex-item']}>
 					<CircularWrapper
-						diameter={150}
-						borderWidth={8}
+						diameter={160}
+						borderWidth={12}
 						borderColour="#C96563"
 						bgColor="#FFFFFF">
 						<h2>DAYS</h2>
