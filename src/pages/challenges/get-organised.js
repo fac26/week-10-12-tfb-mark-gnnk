@@ -1,15 +1,25 @@
 import Image from 'next/image'
-
+import HeaderCard from 'components/cards/HeaderCard'
 export default function GetOrganized({ tasks }) {
 	console.log(tasks)
 	return (
 		<>
-			return <h1>Get Organized!</h1>
+			<h1>Get Organized!</h1>
 			<Image
 				src="/figma/get-organised.png"
 				width={300}
 				height={600}
 				alt="get organized challenge screenshot"
+			/>
+			<HeaderCard
+				preHeaderText="Your challenges for:"
+				header="Get organised"
+				percentage={75}
+				textColor="black"
+				pathColor="var(--main-lavendar)"
+				trailColor="transparent"
+				width={110}
+				strokeWidth={10}
 			/>
 			<ul>
 				{tasks.map((task) => (
