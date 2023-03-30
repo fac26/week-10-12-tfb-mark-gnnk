@@ -11,6 +11,7 @@
 	color: #000;
 	/* border: 1px solid rgb(174, 174, 174); */
 	margin-left: 5rem;
+	z-index: 1;
 }
 
 .bubble-bottom-left:before {
