@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import ChallengeCategoryList from 'components/challenges/ChallengeCategoryList'
 import HeaderCard from 'components/cards/HeaderCard'
 
@@ -20,14 +19,7 @@ export default function GetPrepared({ tasks }) {
 	}
 
 	return (
-		<>
-			<h1>Get Prepared!</h1>
-			<Image
-				src="/figma/get-prepared.png"
-				width={300}
-				height={600}
-				alt="get prepared challenge screenshot"
-			/>
+		<div className="bg">
 			<HeaderCard
 				preHeaderText="Your challenges for:"
 				header="Get prepared"
@@ -44,7 +36,7 @@ export default function GetPrepared({ tasks }) {
 					onCompleted={completedHandler}
 				/>
 			</div>
-		</>
+		</div>
 	)
 }
 
