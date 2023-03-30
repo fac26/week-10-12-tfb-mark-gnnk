@@ -1,6 +1,8 @@
-import Image from 'next/image'
+import styles from '../../styles/Challenges.module.css'
 import HeaderCard from 'components/cards/HeaderCard'
 import ChallengeCategoryList from 'components/challenges/ChallengeCategoryList'
+import Days from '../../components/layout/Days'
+
 export default function GetOrganized({ tasks }) {
 	const completedHandler = async (taskId) => {
 		const response = await fetch('http://localhost:3000/api/update-status', {
@@ -23,7 +25,7 @@ export default function GetOrganized({ tasks }) {
 	return (
 		<div className="bg">
 			<HeaderCard
-				preHeaderText="Your challenges for:"
+				preHeaderText={<Days type={'today'} />}
 				header="Get organised"
 				percentage={75}
 				textColor="black"
@@ -32,6 +34,9 @@ export default function GetOrganized({ tasks }) {
 				width={110}
 				strokeWidth={10}
 			/>
+			<div className={styles.challengeHeader}>
+				<p>Pick a challenge for today</p>
+			</div>
 			<div className="main-container">
 				<ChallengeCategoryList
 					tasks={tasks}
