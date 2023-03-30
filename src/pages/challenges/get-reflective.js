@@ -22,7 +22,7 @@ export default function GetOrganized({ tasks }) {
 		<div className="bg">
 			<HeaderCard
 				preHeaderText="Your challenges for:"
-				header="Get organised"
+				header="Get reflective"
 				percentage={75}
 				textColor="black"
 				pathColor="var(--main-lavendar)"
@@ -43,10 +43,9 @@ export default function GetOrganized({ tasks }) {
 export async function getServerSideProps(context) {
 	const userId = 1
 	const response = await fetch(
-		`http://localhost:3000/api/get-organised?userId=${userId}`
+		`http://localhost:3000/api/get-reflective?userId=${userId}`
 	)
 	const tasks = await response.json()
-	console.log(tasks, ' getReflective.js')
 
 	return {
 		props: {
