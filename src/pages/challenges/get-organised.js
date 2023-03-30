@@ -33,7 +33,10 @@ export default function GetOrganized({ tasks }) {
 				strokeWidth={10}
 			/>
 			<div className="main-container">
-				<ChallengeCategoryList tasks={tasks} />
+				<ChallengeCategoryList
+					tasks={tasks}
+					onCompleted={completedHandler}
+				/>
 			</div>
 
 			{/* <ul>
