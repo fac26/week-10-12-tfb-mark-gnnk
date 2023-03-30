@@ -1,31 +1,34 @@
 import Image from 'next/image'
 import HeaderCard from 'components/cards/HeaderCard'
 import ChallengeCategoryList from 'components/challenges/ChallengeCategoryList'
+import styles from '../../styles/Challenges.module.css'
+import Days from '../../components/layout/Days'
 
 export default function GetHealthy({ tasks }) {
-  const completedHandler = async (taskId) => {
-    const response = await fetch('http//localhost:3000/api/update-status', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ taskId: 1, date: '2023-03-29' })
-    })
+	const completedHandler = async (taskId) => {
+		const response = await fetch('http//localhost:3000/api/update-status', {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ taskId: 1, date: '2023-03-29' })
+		})
 
-    if (response.ok) {
-      console.log(`task ${taskId} has been ticked`)
-    } else {
-      console.error(response.statusText)
-    }
-    console.log(taskId, ' from pages')
-  }
+		if (response.ok) {
+			console.log(`task ${taskId} has been ticked`)
+		} else {
+			console.error(response.statusText)
+		}
+		console.log(taskId, ' from pages')
+	}
 
-  console.log(tasks)
-  return (
+	console.log(tasks)
+	return (
 		<div className="bg">
+			
 			<HeaderCard
-				preHeaderText="Your challenges for:"
-				header="Get healthy"
+				preHeaderText={<Days type={'today'} />}
+				header="Get healthy" 
 				percentage={75}
 				textColor="black"
 				pathColor="var(--main-lavendar)"
@@ -33,13 +36,16 @@ export default function GetHealthy({ tasks }) {
 				width={110}
 				strokeWidth={10}
 			/>
+			<div className={styles.challengeHeader}>
+				<p>Pick a challenge for today</p>
+			</div>
 			<div className="main-container">
 				<ChallengeCategoryList
 					tasks={tasks}
 					onCompleted={completedHandler}
 				/>
 			</div>
-						{/* <ul>
+			{/* <ul>
 				{tasks.map((task) => (
 					<li
 						key={task.id}
@@ -50,20 +56,20 @@ export default function GetHealthy({ tasks }) {
 				))}
 			</ul> */}
 		</div>
-  )
+	)
 }
 
 export async function getServerSideProps(context) {
-  const userId = 1
-  const response = await fetch(
-    `http://localhost:3000/api/get-healthy?userId=${userId}`
-  )
-  const tasks = await response.json()
-  console.log(tasks, ' getHealthy.js')
+	const userId = 1
+	const response = await fetch(
+		`http://localhost:3000/api/get-healthy?userId=${userId}`
+	)
+	const tasks = await response.json()
+	console.log(tasks, ' getHealthy.js')
 
-  return {
-    props: {
-      tasks
-    }
-  }
+	return {
+		props: {
+			tasks
+		}
+	}
 }
