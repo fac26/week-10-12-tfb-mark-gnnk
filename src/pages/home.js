@@ -5,7 +5,10 @@ import Adviser from 'components/adviser/Adviser'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
-export default function Home() {
+export default function Home({ score }) {
+	const toFixedScore = Math.trunc(score * 100)
+
+	console.log(toFixedScore, ' this is from home page')
 	return (
 		<div className="bg">
 			<div className={`${styles.adviser} main-container`}>
@@ -20,8 +23,9 @@ export default function Home() {
 					<p>Here’s how you’re doing far:</p>
 					<h2>You’re doing great! Keep going</h2>
 				</div>
+
 				<ProgressCircle
-					percentage={20}
+					percentage={toFixedScore}
 					textColor="var(--main-text-black)"
 					pathColor="var(--main-dark-violet)"
 					trailColor="var(--main-light-violet)"
@@ -62,4 +66,23 @@ export default function Home() {
 			</div>
 		</div>
 	)
+}
+
+export async function getServerSideProps(context) {
+	//const userId = context.req.session.userId
+
+	const userId = 1
+	const today = new Date().toISOString().split('T')[0]
+	const response = await fetch(
+		`http://localhost:3000/api/tasks?userId=${userId}&date=${today}`
+	)
+
+	const score = await response.json()
+	console.log(score, ' home page getServerSideProps')
+
+	return {
+		props: {
+			score: score.score
+		}
+	}
 }

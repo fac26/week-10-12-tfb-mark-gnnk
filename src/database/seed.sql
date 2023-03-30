@@ -47,7 +47,15 @@ VALUES
 (13, 'Complete a 10 minute walk',3,1),
 (14, 'Complete a 20 minute walk',3,1);
 
-INSERT INTO current_tasks VALUES (1, 1, 2, '2023-03-24');
+INSERT INTO current_tasks VALUES (1, 1, 1, '2023-03-24'),
+(2, 1, 2, '2023-03-24'),
+(3, 1, 3, '2023-03-24'),
+(4, 1, 4, '2023-03-24'),
+(5, 1, 5, '2023-03-24'),
+(6, 1, 6, '2023-03-24'),
+(7, 1, 7, '2023-03-24'),
+(8, 1, 8, '2023-03-24'),
+(9, 1, 9, '2023-03-24');
 
 INSERT INTO 
 avatars

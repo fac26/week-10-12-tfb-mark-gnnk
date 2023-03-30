@@ -1,4 +1,4 @@
-import db from 'database/db.js'
+import db from '../database/db.js'
 
 const select_all_current_tasks = db.prepare(
 	/*sql*/
@@ -12,7 +12,7 @@ const select_all_current_tasks = db.prepare(
 )
 
 export function getAllCurrentTasks(id) {
-	return select_all_current_tasks.get(id)
+	return select_all_current_tasks.all(id)
 }
 
 const select_all_current_tasks_by_category = db.prepare(
@@ -30,6 +30,19 @@ export function getAllCurrentTasksByCategory(id, habitId) {
 	return select_all_current_tasks_by_category.all(id, habitId)
 }
 
+const select_all_today_tasks = db.prepare(
+	/*sql*/
+	`
+      SELECT *
+      FROM history_tasks
+      WHERE user_id = ? AND date = ?
+    `
+)
+
+export function getAllTodayTasks(id, date) {
+	return select_all_today_tasks.all(id, date)
+}
+
 const select_completed_by_habits_and_by_day = db.prepare(
 	/*sql*/
 	`
@@ -41,6 +54,23 @@ const select_completed_by_habits_and_by_day = db.prepare(
     AND history_tasks.status = true
 `
 )
+
+const fill_history_table = db.prepare(/*sql*/ `
+  INSERT INTO history_tasks (user_id, task_id, date)
+  SELECT user_id, task_id, ?
+  FROM current_tasks
+  WHERE NOT EXISTS (
+    SELECT 1
+    FROM history_tasks
+    WHERE history_tasks.user_id = current_tasks.user_id
+      AND history_tasks.task_id = current_tasks.task_id
+      AND history_tasks.date = ?
+  );
+`)
+
+export function fillHistoryTable(date) {
+	return fill_history_table.run(date, date)
+}
 
 export function getCompletedTasksByDate(userId, date) {
 	return select_completed_by_habits_and_by_day.all(userId, date)
@@ -62,11 +92,15 @@ export function getUncompletedTasksByDate(userId, date) {
 	return select_uncompleted_by_habits_and_by_day.all(userId, date)
 }
 
-const uncompletedTbyDate = getUncompletedTasksByDate(1, '2023-03-24')
-console.log(uncompletedTbyDate, ' all uncompleted tasks by date')
-const currentTbyUserid = getAllCurrentTasks(1)
-console.log(currentTbyUserid, ' current tasks by user id')
+const update_task_status = db.prepare(
+	/*sql*/
+	`UPDATE history_tasks SET status = ? WHERE task_id = ? AND date = ?`
+)
 
-const getTbyC = getAllCurrentTasksByCategory(1, 1)
+export function updateTaskStatus(status, taskId, date) {
+	return update_task_status.run(status, taskId, date)
+}
+const updateStatus = updateTaskStatus(0, 1, '2023-03-24') //true, taskId, date
 
-console.log(getTbyC)
+const filled = fillHistoryTable('2023-03-29')
+console.log(filled)
