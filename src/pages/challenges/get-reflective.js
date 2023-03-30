@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import ChallengeCategoryList from 'components/challenges/ChallengeCategoryList'
+import HeaderCard from 'components/cards/HeaderCard'
 
 export default function GetOrganized({ tasks }) {
 	const completedHandler = async (taskId) => {
@@ -18,21 +18,25 @@ export default function GetOrganized({ tasks }) {
 		}
 	}
 
-	console.log(tasks)
 	return (
-		<>
-			return <h1>Get Reflective!</h1>
-			<Image
-				src="/figma/get-reflective.png"
-				width={300}
-				height={600}
-				alt="get reflective challenge screenshot"
+		<div className="bg">
+			<HeaderCard
+				preHeaderText="Your challenges for:"
+				header="Get organised"
+				percentage={75}
+				textColor="black"
+				pathColor="var(--main-lavendar)"
+				trailColor="transparent"
+				width={110}
+				strokeWidth={10}
 			/>
-			<ChallengeCategoryList
-				tasks={tasks}
-				onCompleted={completedHandler}
-			/>
-		</>
+			<div className="main-container">
+				<ChallengeCategoryList
+					tasks={tasks}
+					onCompleted={completedHandler}
+				/>
+			</div>
+		</div>
 	)
 }
 
