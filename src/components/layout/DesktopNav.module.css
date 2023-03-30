@@ -5,3 +5,12 @@
 	justify-content: space-around;
 	gap: 2rem;
 }
+.desktop-nav {
+	display: none;
+}
+
+@media only screen and (min-width: 768px) {
+	.desktop-nav {
+		display: block;
+	}
+}

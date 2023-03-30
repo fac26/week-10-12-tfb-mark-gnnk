@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import ChallengeCategoryList from '../../components/challenges/ChallengeCategoryList'
-
+import HeaderCard from 'components/cards/HeaderCard'
+import ChallengeCategoryList from 'components/challenges/ChallengeCategoryList'
 export default function GetOrganized({ tasks }) {
 	const completedHandler = async (taskId) => {
 		const response = await fetch('http://localhost:3000/api/update-status', {
@@ -21,19 +21,35 @@ export default function GetOrganized({ tasks }) {
 
 	console.log(tasks)
 	return (
-		<>
-			return <h1>Get Organized!</h1>
-			<Image
-				src="/figma/get-organised.png"
-				width={300}
-				height={600}
-				alt="get organized challenge screenshot"
+		<div className="bg">
+			<HeaderCard
+				preHeaderText="Your challenges for:"
+				header="Get organised"
+				percentage={75}
+				textColor="black"
+				pathColor="var(--main-lavendar)"
+				trailColor="transparent"
+				width={110}
+				strokeWidth={10}
 			/>
-			<ChallengeCategoryList
-				tasks={tasks}
-				onCompleted={completedHandler}
-			/>
-		</>
+			<div className="main-container">
+				<ChallengeCategoryList
+					tasks={tasks}
+					onCompleted={completedHandler}
+				/>
+			</div>
+
+			{/* <ul>
+				{tasks.map((task) => (
+					<li
+						key={task.id}
+						id={task.id}>
+						<h2>{task.name}</h2>
+						<p>{task.category_name}</p>
+					</li>
+				))}
+			</ul> */}
+		</div>
 	)
 }
 

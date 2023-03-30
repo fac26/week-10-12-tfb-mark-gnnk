@@ -1,0 +1,23 @@
+.challengeHeader {
+	margin: 1.5rem 0;
+	text-align: center;
+	font-size: 10pt;
+}
+
+.challengeContainer {
+	width: 10rem;
+}
+
+.challengeTitle {
+	font-size: 13pt;
+	font-weight: 600;
+}
+
+.challengeDesc {
+	font-size: 10pt;
+}
+
+.habitContainer {
+	margin-left: auto;
+	margin-right: auto;
+}
