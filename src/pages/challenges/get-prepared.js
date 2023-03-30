@@ -1,6 +1,8 @@
-import Image from 'next/image'
-import ChallengeCategoryList from '../../components/challenges/ChallengeCategoryList'
+import ChallengeCategoryList from 'components/challenges/ChallengeCategoryList'
+import HeaderCard from 'components/cards/HeaderCard'
+import Days from '../../components/layout/Days'
 
+import styles from '../../styles/Challenges.module.css'
 export default function GetPrepared({ tasks }) {
 	const completedHandler = async (taskId) => {
 		const response = await fetch('http://localhost:3000/api/update-status', {
@@ -16,39 +18,40 @@ export default function GetPrepared({ tasks }) {
 		} else {
 			console.error(response.statusText)
 		}
-		console.log(taskId, ' from pages')
 	}
 
-	console.log(tasks)
 	return (
-		<>
-			<h1>Get Prepared!</h1>
-			<Image
-				src="/figma/get-prepared.png"
-				width={300}
-				height={600}
-				alt="get prepared challenge screenshot"
+		<div className="bg">
+			<HeaderCard
+				preHeaderText={<Days type={'today'} />}
+				header="Get prepared"
+				percentage={75}
+				textColor="black"
+				pathColor="var(--main-lavendar)"
+				trailColor="transparent"
+				width={110}
+				strokeWidth={10}
 			/>
-			<ChallengeCategoryList
-				tasks={tasks}
-				onCompleted={completedHandler}
-			/>
-		</>
+			<div className={styles.challengeHeader}>
+				<p>Pick a challenge for today</p>
+			</div>
+			<div className="main-container">
+				<ChallengeCategoryList
+					tasks={tasks}
+					onCompleted={completedHandler}
+				/>
+			</div>
+		</div>
 	)
 }
 
 export async function getServerSideProps(context) {
-	//const userId = context.req.session.userId
-
 	const userId = 1
-	// Fetch the tasks data for the user from the API endpoint
 	const response = await fetch(
 		`http://localhost:3000/api/get-prepared?userId=${userId}`
 	)
 	const tasks = await response.json()
-	console.log(tasks, 'getPrepared.js')
 
-	// Pass the tasks data as a prop to the page component
 	return {
 		props: {
 			tasks
