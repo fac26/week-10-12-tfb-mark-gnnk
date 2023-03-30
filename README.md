@@ -46,6 +46,7 @@ We are not building a React Native app, an online database of teachers and stude
 
 #### How did you decide what features were important?
 
+We conducted user research and usability testing. Our users gave us valuable feedback which helped us refine our initial concept. It also gave us a chance to see how the users interacted with the prototype and their journey through the app. This helped inform us of the user stories we wanted to target first for our MVP.
 
 </details>
 
