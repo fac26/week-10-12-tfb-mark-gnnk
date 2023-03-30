@@ -5,35 +5,28 @@ import Days from 'components/layout/Days'
 import ProgressCircle from 'components/cards/ProgressCircle'
 import styles from '../../styles/Challenges.module.css'
 import Rectangle from 'components/cards/Rectangle'
+import HeaderCard from 'components/cards/HeaderCard'
 
 export default function Challenges({ tasks, habits }) {
 	console.log(habits)
 	return (
-		<div className={styles.background}>
-			<div className={styles.container}>
-				<div>
-					<p className={styles.heading}>Your challenges for:</p>
-					<div className={styles.date}>
-						<Days type={'today'} />
-						<div className={styles.divider}></div>
-					</div>
-				</div>
-				<div>
-					<ProgressCircle
-						percentage={75}
-						textColor="black"
-						pathColor="var(--main-lavendar)"
-						trailColor="transparent"
-						width={110}
-						strokeWidth={10}
-					/>
-				</div>
-			</div>
+		<div className="bg">
+			<HeaderCard
+				preHeaderText="Your challenges for:"
+				header={<Days type={'today'} />}
+				percentage={75}
+				textColor="black"
+				pathColor="var(--main-lavendar)"
+				trailColor="transparent"
+				width={110}
+				strokeWidth={10}
+			/>
+
 			<div className={styles.challengeHeader}>
 				<p>Pick a challenge for today</p>
 			</div>
 
-			<ul className={styles.habitContainer}>
+			<ul className="main-container">
 				{habits.map((habit) => (
 					<li key={habit.id}>
 						<Link
@@ -42,7 +35,6 @@ export default function Challenges({ tasks, habits }) {
 								.replace(' ', '-')}`}>
 							<Rectangle
 								backgroundColor="#FFF8F0"
-								width={320}
 								display="flex"
 								justifyContent="space-around"
 								textAlign="center">
@@ -55,7 +47,7 @@ export default function Challenges({ tasks, habits }) {
 								<div>
 									<ProgressCircle
 										percentage={75}
-										textColor="black"
+										textColor="var(--main-text-black"
 										pathColor="var(--main-lavendar)"
 										trailColor="transparent"
 										width={70}

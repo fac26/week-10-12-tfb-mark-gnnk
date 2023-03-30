@@ -1,0 +1,19 @@
+.container {
+	display: flex;
+	padding-top: 3rem;
+	align-items: center;
+	justify-content: space-between;
+}
+.pre-header {
+	font-size: 10pt;
+}
+.header {
+	font-size: 25pt;
+	font-weight: 900;
+	margin-top: 0.75rem;
+	padding-right: 10px;
+}
+.divider {
+	border-bottom: solid 5px black;
+	margin-top: 0.25rem;
+}

@@ -2,10 +2,21 @@
 
 :root {
 	--max-width: 1100px;
+	--main-white: #ffffff;
 	--main-beige: #fff8f0;
 	--main-green: #bcf0e4;
 	--main-lavendar: #b6aada;
 	--main-blue: #bccbec;
+	--main-dark-violet: #473982;
+	--main-light-violet: #47398245;
+	--main-text-black: #030303;
+	--mobile-nav-height: 60px;
+	--lg-width: 85%;
+	--lg-max-width: 600px;
+	--md-width: 90%;
+	--md-max-width: 500px;
+	--mobile-bg-src: url('/backgrounds/Background-Mobile.png');
+	--desktop-bg-src: url('/backgrounds/Background-Desktop.png');
 }
 
 * {
@@ -18,16 +29,41 @@
 html,
 body {
 	max-width: 100vw;
-	overflow-x: hidden;
+	/*  */
 }
 
 a {
 	color: inherit;
 	text-decoration: none;
 }
+ul {
+	list-style: none;
+}
+.bg {
+	background-image: var(--mobile-bg-src);
+	width: 100vw;
+	height: 100vh;
+	object-fit: fill;
+	z-index: -10;
+	background-repeat: repeat-y;
+	padding-bottom: var(--mobile-nav-height);
+}
 
-@media (prefers-color-scheme: dark) {
-	html {
-		color-scheme: dark;
+.top-container {
+	margin-left: auto;
+	margin-right: auto;
+	width: var(--lg-width);
+	max-width: var(--lg-max-width);
+}
+.main-container {
+	margin-left: auto;
+	margin-right: auto;
+	width: var(--md-width);
+	max-width: var(--md-max-width);
+}
+
+@media (min-width: 416px) and (max-width: 1920px) {
+	.bg {
+		background-image: var(--desktop-bg-src);
 	}
 }
