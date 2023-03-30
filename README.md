@@ -30,7 +30,7 @@ This way, children can create new good habits related to their goal in a more st
 
 #### What are you not building?
 
-We are not building a React Native app, an online database of teachers and students for the user to connect with, a general social networking app and we're not building an app that allows .
+We are not building a React Native app, an online database of teachers and students for the user to connect with, a general social networking app and we are not building a game that allows the user recieve points for walking around their school.
 
 #### How did you decide what features were important?
 
