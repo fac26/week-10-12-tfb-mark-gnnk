@@ -30,7 +30,7 @@ export function getAllCurrentTasksByCategory(id, habitId) {
 	return select_all_current_tasks_by_category.all(id, habitId)
 }
 
-const select_all_today_tasks = db.prepare(
+const select_all_date_tasks = db.prepare(
 	/*sql*/
 	`
       SELECT *
@@ -39,8 +39,8 @@ const select_all_today_tasks = db.prepare(
     `
 )
 
-export function getAllTodayTasks(id, date) {
-	return select_all_today_tasks.all(id, date)
+export function getAllTasksByDate(id, date) {
+	return select_all_date_tasks.all(id, date)
 }
 
 const select_completed_by_habits_and_by_day = db.prepare(
@@ -100,7 +100,23 @@ const update_task_status = db.prepare(
 export function updateTaskStatus(status, taskId, date) {
 	return update_task_status.run(status, taskId, date)
 }
-const updateStatus = updateTaskStatus(0, 1, '2023-03-24') //true, taskId, date
 
-const filled = fillHistoryTable('2023-03-29')
-console.log(filled)
+const select_all_day_tasks_by_category = db.prepare(
+	/*sql*/
+	`
+  SELECT tasks.id, tasks.name, tasks.category_id, categories.name AS category_name, tasks.points, current_tasks.id AS current_task_id, history_tasks.status
+  FROM history_tasks
+  LEFT JOIN current_tasks ON history_tasks.task_id = current_tasks.task_id AND current_tasks.user_id = history_tasks.user_id
+  LEFT JOIN tasks ON history_tasks.task_id = tasks.id
+  LEFT JOIN habit_categories AS categories ON tasks.category_id = categories.id
+  WHERE history_tasks.user_id = ? AND tasks.category_id = ? AND history_tasks.date = ?
+  
+    `
+)
+
+export function getAllDayTasksByCategory(id, habitId, day) {
+	return select_all_day_tasks_by_category.all(id, habitId, day)
+}
+
+// const result = getAllDayTasksByCategory(1, 2, '2023-03-30')
+// console.log(result, ' from tasks.js')
