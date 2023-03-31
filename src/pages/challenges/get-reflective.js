@@ -1,6 +1,6 @@
 import ChallengeCategoryList from 'components/challenges/ChallengeCategoryList'
 import HeaderCard from 'components/cards/HeaderCard'
-import Days from 'components/layout/Days'
+import DatePrinter from 'components/layout/DatePrinter'
 import styles from '../../styles/Challenges.module.css'
 export default function GetOrganized({ tasks }) {
 	const completedHandler = async (taskId) => {
@@ -22,7 +22,7 @@ export default function GetOrganized({ tasks }) {
 	return (
 		<div className="bg">
 			<HeaderCard
-				preHeaderText={<Days type={'today'} />}
+				preHeaderText={<DatePrinter type={'today'} />}
 				header="Get reflective"
 				percentage={75}
 				textColor="black"

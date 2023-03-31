@@ -2,7 +2,7 @@ import Image from 'next/image'
 import HeaderCard from 'components/cards/HeaderCard'
 import ChallengeCategoryList from 'components/challenges/ChallengeCategoryList'
 import styles from '../../styles/Challenges.module.css'
-import Days from '../../components/layout/Days'
+import DatePrinter from '../../components/layout/DatePrinter'
 
 export default function GetHealthy({ tasks }) {
 	const completedHandler = async (taskId) => {
@@ -26,7 +26,7 @@ export default function GetHealthy({ tasks }) {
 	return (
 		<div className="bg">
 			<HeaderCard
-				preHeaderText={<Days type={'today'} />}
+				preHeaderText={<DatePrinter type={'today'} />}
 				header="Get healthy"
 				percentage={75}
 				textColor="black"
