@@ -11,7 +11,7 @@ export default function ChallengeCategoryItem({ task, complete, onChecked }) {
 						className={styles.checkboxContainer}
 						id={task.id}
 						onClick={onChecked}>
-						{complete && (
+						{!!complete && (
 							<div className={styles.checkboxMark}>
 								<Image
 									src="/icons/check-mark.svg"
