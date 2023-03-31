@@ -7,14 +7,14 @@ export default async function handler(req, res) {
 	}
 	console.log(req.body, ' update-status!!')
 
-	const { taskId, date } = req.body
-	const currentDate = new Date().toISOString().split('T')[0] //check the date in backend
-	console.log(currentDate)
+	const { userId, taskId } = req.body
+	const today = new Date().toISOString().split('T')[0] //check the date in backend
+	console.log(today)
 	// if (date == currentDate) {
 	// 	return res.status(405).json({ error: 'Invalit date' })
 	// }
 	try {
-		await updateTaskStatus(1, taskId, date)
+		await updateTaskStatus(userId, taskId, today)
 		res.status(200).json({ success: true })
 	} catch (error) {
 		console.error(error.message)
