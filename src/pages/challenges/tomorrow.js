@@ -41,7 +41,7 @@ export default function Tomorrow(props) {
 				{showModal && <DayNotArrivedModal onClose={handleCloseModal} />}
 			</div> */}
 
-			<h1>Tomorrow's challenges</h1>
+			<h1>Tomorrow&apos; challenges</h1>
 			<Image
 				src="/figma/tomorrow.png"
 				width={300}
