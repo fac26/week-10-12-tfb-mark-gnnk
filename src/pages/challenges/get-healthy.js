@@ -25,10 +25,9 @@ export default function GetHealthy({ tasks }) {
 	console.log(tasks)
 	return (
 		<div className="bg">
-			
 			<HeaderCard
 				preHeaderText={<Days type={'today'} />}
-				header="Get healthy" 
+				header="Get healthy"
 				percentage={75}
 				textColor="black"
 				pathColor="var(--main-lavendar)"

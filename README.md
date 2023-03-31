@@ -2,7 +2,7 @@
 
 We have created a habit tracking app to encourage children aged 10/11 to adopt good habits by completing 'micro-habits'.
 
-Contributors 
+Contributors
 [Georgia](https://github.com/rockyrelay)
 [Karol](https://github.com/Kr33L)
 [Konstantina](https://github.com/konstantinakatmada)
@@ -15,7 +15,7 @@ Please `clone` this repo to your local machine
 
 Please run `npm install` to install all dependencies
 
-Please run `npm run seed` to seed the database 
+Please run `npm run seed` to seed the database
 
 Please run `npm run dev` to run the app
 
@@ -26,14 +26,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 <details>
 
 #### What are you building?
-    
-A web that allows users to complete a series of challenges e.g. Get Organised that are clusters of small managable tasks called 'micro-habits'. This is so that they can program themselves to work through these challenges and build good habits.  
+
+A web that allows users to complete a series of challenges e.g. Get Organised that are clusters of small managable tasks called 'micro-habits'. This is so that they can program themselves to work through these challenges and build good habits.
 
 #### Why are you building it?
 
 Creating new habits is a process that takes time, multiple tries and effort. Repeating small, positive micro-habits that accumulate can reduce the time and effort needed significantly. A cluster of related habits all contribute to a common "challenge", a common goal such as Get Healthy, Get Organised etc.
 
 This way, children can create new good habits related to their goal in a more stuctured, organised way, and enjoy the process.
+
 </details>
 
 ## Project Scope
@@ -56,7 +57,6 @@ We conducted user research and usability testing. Our users gave us valuable fee
 
 #### How are you going to structure your sprints?
 
-
 #### What order are you going to build in?
 
 Our tech stack includes:
@@ -68,15 +68,9 @@ Our tech stack includes:
 
 #### How did user research inform your plan?
 
-
-
 Some valuable feedback included:
 
-
-
 Some new features included:
-
-
 
 </details>
 
@@ -88,7 +82,6 @@ Some new features included:
 
 We will ensure our project is accessible to as many users as possible by:
 
-
 #### Are there any legal or regulatory requirements you should consider?
 
 </details>
@@ -99,11 +92,7 @@ We will ensure our project is accessible to as many users as possible by:
 
 #### Did your team work effectively?
 
-     
-
 #### What would you do differently next time?
-
-  
 
 </details>
 
@@ -112,8 +101,6 @@ We will ensure our project is accessible to as many users as possible by:
 <details>
 
 #### What did you find out from user testing?
-
-
 
 </details>
 
@@ -165,27 +152,17 @@ We will ensure our project is accessible to as many users as possible by:
 
 #### How did you plan a user experience?
 
-
-
 #### What technical decisions did you make?
-       
 
 #### Server-render vs client-render vs both
-    
-
 
 #### Relational or non-relational or no DB
-    
 
 #### Self-hosted or platform-as-a-service
 
-
 #### Frontend first vs DB first
 
-
 #### Did you create a technical specification?
-
-
 
 </details>
 
@@ -218,10 +195,10 @@ We will ensure our project is accessible to as many users as possible by:
 `Identify and create test scenarios which satisfy the project specification (S6)`
 
 - We created two general tests replicating a user journey which takes them through our website, using Cypress Testing.
-The first tested our Navigation Bar component, which is prominent throughout our site, and allows the user to navigate the app via icons.
-In order to make the Cypress Testing work, we added `data-cy="[icon function]"` props to the original NavBar component, which the file in 
-Cypress Testing could then target. 
-The second test file verifies that the sign-in functionality is working correctly, including being able to validate any email and password passed in. This was only possible via adding the following data object in the `testData.json` file, in the `fixtures` sub-folder inside the `cypress` root folder. If this data object hadn't been added, each email and password would have to be hard-coded in. 
+  The first tested our Navigation Bar component, which is prominent throughout our site, and allows the user to navigate the app via icons.
+  In order to make the Cypress Testing work, we added `data-cy="[icon function]"` props to the original NavBar component, which the file in
+  Cypress Testing could then target.
+  The second test file verifies that the sign-in functionality is working correctly, including being able to validate any email and password passed in. This was only possible via adding the following data object in the `testData.json` file, in the `fixtures` sub-folder inside the `cypress` root folder. If this data object hadn't been added, each email and password would have to be hard-coded in.
 
 ```
 {
@@ -233,21 +210,21 @@ The second test file verifies that the sign-in functionality is working correctl
 #### Did writing automated tests catch any bugs?
 
 - Although not 'bugs' as such, there were conflicts in the package-lock.json file whenever we pulled down from the remote `main` branch to the
-local `cypresstesting` branch, so as to have an up-to-date version of what was in the `main`. This is because the `main` branch had a lot of 
-Supabase packages, as a result of downloading and installing Supabase, which had not featured in the `cypresstesting` branch. 
-Meanwhile, the `main` branch did not have any Cypress Testing packages, but the `cypresstesting` branch did, as a result of downloading 
-and installing Cypress Testing. The two appeared to clash, though Git allowed a combination.
-Initially, we dealt with the conflicts by indeed accepting a combination of both packages in the package-lock.json file of the `cypresstesting` branch, but
-just befeore merging what was in the `cypresstesting` branch to `main`, we deliberately deleted the package-lock.json file in the `cypresstesting`. 
-This ensured thatt there was no chance of 'contagion' from the package-lock.json files in the `cypresstesting` branch affecting the `main` branch, 
-which could make the app not work. Then, once we had merged to main, we then did an `npm install` into the Cypress testing, to get the package-lock.json
-back.
+  local `cypresstesting` branch, so as to have an up-to-date version of what was in the `main`. This is because the `main` branch had a lot of
+  Supabase packages, as a result of downloading and installing Supabase, which had not featured in the `cypresstesting` branch.
+  Meanwhile, the `main` branch did not have any Cypress Testing packages, but the `cypresstesting` branch did, as a result of downloading
+  and installing Cypress Testing. The two appeared to clash, though Git allowed a combination.
+  Initially, we dealt with the conflicts by indeed accepting a combination of both packages in the package-lock.json file of the `cypresstesting` branch, but
+  just befeore merging what was in the `cypresstesting` branch to `main`, we deliberately deleted the package-lock.json file in the `cypresstesting`.
+  This ensured thatt there was no chance of 'contagion' from the package-lock.json files in the `cypresstesting` branch affecting the `main` branch,
+  which could make the app not work. Then, once we had merged to main, we then did an `npm install` into the Cypress testing, to get the package-lock.json
+  back.
 
 `Analyse unit testing results and review the outcomes, correcting errors. (S4)`
 
-E2E (end-to-end) unit testing results are of great help to identify and solve the issues. Cypress Testing allows both e2e testing and component testing; 
-the former tests all elements and components on a page, while the latter can iteratively test an individual component on a page, in isolation from 
-everything else on that page. 
+E2E (end-to-end) unit testing results are of great help to identify and solve the issues. Cypress Testing allows both e2e testing and component testing;
+the former tests all elements and components on a page, while the latter can iteratively test an individual component on a page, in isolation from
+everything else on that page.
 In the limited time that we had, we did not have a chance to try out component testing, only e2e testing.
 
 </details>
