@@ -26,7 +26,9 @@ export default function GetHealthy({ tasks }) {
 	return (
 		<div className="bg">
 			<HeaderCard
+
 				preHeaderText={<DatePrinter type={'today'} />}
+        
 				header="Get healthy"
 				percentage={75}
 				textColor="black"
