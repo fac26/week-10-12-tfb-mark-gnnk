@@ -22,14 +22,14 @@ export async function getTodayScoreByCategory(userId, categoryId) {
 	const today_tasks = getAllDayTasksByCategory(userId, categoryId, today)
 	const uncompletedTasks = today_tasks.filter((task) => task.status === 1)
 	const score = uncompletedTasks.length / today_tasks.length
-	return score
+	return Math.trunc(score * 100)
 }
 
 export async function getTotalTodayScore(userId) {
 	const today_tasks = await todayTasks(userId)
 	const uncompletedTasks = today_tasks.filter((task) => task.status === 1)
 	const score = uncompletedTasks.length / today_tasks.length
-	return score
+	return Math.trunc(score * 100)
 }
 
 export async function getTodayTasksByCategory(userId, categoryId) {
