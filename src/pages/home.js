@@ -1,10 +1,9 @@
 import CircularWrapper from 'components/cards/CircularWrapper'
-
+import { getTotalTodayScore } from '../model/helpers/today-tasks'
 import ProgressCircle from 'components/cards/ProgressCircle'
 import Adviser from 'components/adviser/Adviser'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import Image from 'next/image'
 export default function Home({ score }) {
 	const toFixedScore = Math.trunc(score * 100)
 
@@ -72,17 +71,11 @@ export async function getServerSideProps(context) {
 	//const userId = context.req.session.userId
 
 	const userId = 1
-	const today = new Date().toISOString().split('T')[0]
-	const response = await fetch(
-		`http://localhost:3000/api/tasks?userId=${userId}&date=${today}`
-	)
-
-	const score = await response.json()
-	console.log(score, ' home page getServerSideProps')
+	const score = await getTotalTodayScore(userId)
 
 	return {
 		props: {
-			score: score.score
+			score
 		}
 	}
 }
