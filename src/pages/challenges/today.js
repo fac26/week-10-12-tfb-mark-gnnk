@@ -1,19 +1,18 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { getAllHabits } from '../../model/habits'
-import Days from 'components/layout/Days'
+import DatePrinter from 'components/layout/DatePrinter'
 import ProgressCircle from 'components/cards/ProgressCircle'
 import styles from '../../styles/Challenges.module.css'
 import Rectangle from 'components/cards/Rectangle'
 import HeaderCard from 'components/cards/HeaderCard'
 
-export default function Challenges({ tasks, habits }) {
-	console.log(habits)
+export default function Challenges({ habits }) {
 	return (
 		<div className="bg">
 			<HeaderCard
 				preHeaderText="Your challenges for:"
-				header={<Days type={'today'} />}
+				header={<DatePrinter type={'today'} />}
 				percentage={75}
 				textColor="black"
 				pathColor="var(--main-lavendar)"

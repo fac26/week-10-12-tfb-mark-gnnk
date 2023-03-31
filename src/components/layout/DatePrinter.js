@@ -1,6 +1,6 @@
 import { parseISO, format, addDays, isValid } from 'date-fns'
 
-export default function Days({ type = 'today' }) {
+export default function DatePrinter({ type = 'today' }) {
 	let date
 
 	switch (type) {

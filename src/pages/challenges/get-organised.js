@@ -1,7 +1,7 @@
 import styles from '../../styles/Challenges.module.css'
 import HeaderCard from 'components/cards/HeaderCard'
 import ChallengeCategoryList from 'components/challenges/ChallengeCategoryList'
-import Days from '../../components/layout/Days'
+import DatePrinter from '../../components/layout/DatePrinter'
 
 export default function GetOrganized({ tasks }) {
 	const completedHandler = async (taskId) => {
@@ -25,9 +25,9 @@ export default function GetOrganized({ tasks }) {
 	return (
 		<div className="bg">
 			<HeaderCard
-				preHeaderText={<Days type={'today'} />}
+				preHeaderText={<DatePrinter type={'today'} />}
 				header="Get organised"
-				percentage={75}
+				percentage={66}
 				textColor="black"
 				pathColor="var(--main-lavendar)"
 				trailColor="transparent"

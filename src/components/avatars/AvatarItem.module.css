@@ -1,0 +1,16 @@
+.priceContainer {
+	display: flex;
+	width: 100%;
+	max-width: 140px;
+	background-color: #d9d9d9;
+	padding: 0.25rem;
+	border-radius: 25px;
+	align-items: center;
+	gap: 2rem;
+}
+
+.avatarContainer {
+	padding: 0.5rem 0;
+	width: 140px;
+	margin: auto;
+}

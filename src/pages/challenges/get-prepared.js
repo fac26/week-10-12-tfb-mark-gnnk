@@ -1,6 +1,6 @@
 import ChallengeCategoryList from 'components/challenges/ChallengeCategoryList'
 import HeaderCard from 'components/cards/HeaderCard'
-import Days from '../../components/layout/Days'
+import DatePrinter from '../../components/layout/DatePrinter'
 
 import styles from '../../styles/Challenges.module.css'
 export default function GetPrepared({ tasks }) {
@@ -23,7 +23,7 @@ export default function GetPrepared({ tasks }) {
 	return (
 		<div className="bg">
 			<HeaderCard
-				preHeaderText={<Days type={'today'} />}
+				preHeaderText={<DatePrinter type={'today'} />}
 				header="Get prepared"
 				percentage={75}
 				textColor="black"
