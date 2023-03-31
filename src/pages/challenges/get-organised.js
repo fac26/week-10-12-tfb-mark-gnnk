@@ -2,15 +2,21 @@ import styles from '../../styles/Challenges.module.css'
 import HeaderCard from 'components/cards/HeaderCard'
 import ChallengeCategoryList from 'components/challenges/ChallengeCategoryList'
 import DatePrinter from '../../components/layout/DatePrinter'
-
-export default function GetOrganized({ tasks }) {
+import {
+	getTodayTasksByCategory,
+	getTodayScoreByCategory
+} from 'model/helpers/today-tasks'
+import { useState } from 'react'
+export default function GetOrganized({ tasks, progress }) {
+	console.log(progress)
+	const userId = 1
 	const completedHandler = async (taskId) => {
 		const response = await fetch('http://localhost:3000/api/update-status', {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ taskId: 1, date: '2023-03-24' })
+			body: JSON.stringify({ userId: userId, taskId: taskId })
 		})
 
 		if (response.ok) {
@@ -27,7 +33,7 @@ export default function GetOrganized({ tasks }) {
 			<HeaderCard
 				preHeaderText={<DatePrinter type={'today'} />}
 				header="Get organised"
-				percentage={66}
+				percentage={progress}
 				textColor="black"
 				pathColor="var(--main-lavendar)"
 				trailColor="transparent"
@@ -43,17 +49,6 @@ export default function GetOrganized({ tasks }) {
 					onCompleted={completedHandler}
 				/>
 			</div>
-
-			{/* <ul>
-				{tasks.map((task) => (
-					<li
-						key={task.id}
-						id={task.id}>
-						<h2>{task.name}</h2>
-						<p>{task.category_name}</p>
-					</li>
-				))}
-			</ul> */}
 		</div>
 	)
 }
@@ -62,17 +57,13 @@ export async function getServerSideProps(context) {
 	//const userId = context.req.session.userId
 
 	const userId = 1
-	// Fetch the tasks data for the user from the API endpoint
-	const response = await fetch(
-		`http://localhost:3000/api/get-organised?userId=${userId}`
-	)
-	const tasks = await response.json()
-	console.log(tasks, ' getOragnised.js')
-
-	// Pass the tasks data as a prop to the page component
+	//category_id: 1,    category_name: 'Get Organised',
+	const tasks = await getTodayTasksByCategory(userId, 1)
+	const progress = await getTodayScoreByCategory(userId, 1)
 	return {
 		props: {
-			tasks
+			tasks,
+			progress
 		}
 	}
 }
