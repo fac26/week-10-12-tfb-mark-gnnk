@@ -8,8 +8,9 @@ import {
 } from 'model/helpers/today-tasks'
 import { useState } from 'react'
 export default function GetOrganized({ tasks, progress }) {
-	console.log(progress)
+	const [data, setData] = useState({ tasks: tasks, progress: progress })
 	const userId = 1
+
 	const completedHandler = async (taskId) => {
 		const response = await fetch('http://localhost:3000/api/update-status', {
 			method: 'PUT',
@@ -20,20 +21,27 @@ export default function GetOrganized({ tasks, progress }) {
 		})
 
 		if (response.ok) {
-			console.log(`Task ${taskId} has been marked as completed`)
+			setData((prevState) => {
+				const updatedTasks = prevState.tasks.map((task) =>
+					task.id == taskId ? { ...task, status: 1 } : task
+				)
+
+				const totalTasks = updatedTasks.length
+				const newProgress = Math.round((completedTasks / totalTasks) * 100)
+
+				return { tasks: updatedTasks, progress: newProgress }
+			})
 		} else {
 			console.error(response.statusText)
 		}
-		console.log(taskId, ' from pages')
 	}
 
-	console.log(tasks)
 	return (
 		<div className="bg">
 			<HeaderCard
 				preHeaderText={<DatePrinter type={'today'} />}
 				header="Get organised"
-				percentage={progress}
+				percentage={data.progress}
 				textColor="black"
 				pathColor="var(--main-lavendar)"
 				trailColor="transparent"
@@ -45,7 +53,7 @@ export default function GetOrganized({ tasks, progress }) {
 			</div>
 			<div className="main-container">
 				<ChallengeCategoryList
-					tasks={tasks}
+					tasks={data.tasks}
 					onCompleted={completedHandler}
 				/>
 			</div>
