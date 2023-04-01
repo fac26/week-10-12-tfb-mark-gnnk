@@ -1,4 +1,5 @@
 import { updateTaskStatus } from 'model/tasks'
+import { updateUserPoints } from 'model/user-profile'
 
 export default async function handler(req, res) {
 	console.log(req)
@@ -15,6 +16,7 @@ export default async function handler(req, res) {
 	// }
 	try {
 		await updateTaskStatus(userId, taskId, today)
+		updateUserPoints(userId, taskId)
 		res.status(200).json({ success: true })
 	} catch (error) {
 		console.error(error.message)
