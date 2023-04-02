@@ -7,11 +7,17 @@ import {
 	getTodayScoreByCategory
 } from 'model/helpers/today-tasks'
 import { useState } from 'react'
+import { useUserContext } from '../../context/UserContext.js'
 export default function GetOrganized({ tasks, progress }) {
 	const [data, setData] = useState({ tasks: tasks, progress: progress })
 	const userId = 1
+	const ctx = useUserContext()
 
 	const completedHandler = async (taskId) => {
+		const taskPoints = data.tasks.find(
+			(task) => task.id === Number(taskId)
+		).points
+
 		const response = await fetch('http://localhost:3000/api/update-status', {
 			method: 'PUT',
 			headers: {
@@ -25,12 +31,15 @@ export default function GetOrganized({ tasks, progress }) {
 				const updatedTasks = prevState.tasks.map((task) =>
 					task.id == taskId ? { ...task, status: 1 } : task
 				)
-
+				const completedTasks = updatedTasks.filter(
+					(task) => task.status === 1
+				).length
 				const totalTasks = updatedTasks.length
 				const newProgress = Math.round((completedTasks / totalTasks) * 100)
 
 				return { tasks: updatedTasks, progress: newProgress }
 			})
+			ctx.updateUserPoints(taskPoints)
 		} else {
 			console.error(response.statusText)
 		}

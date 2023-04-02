@@ -1,8 +1,9 @@
 import Image from 'next/image'
 
 import styles from './UserBar.module.css'
-
-function UserBar({ points, src }) {
+import { useUserContext } from '../../context/UserContext.js'
+function UserBar({ src }) {
+	const { points } = useUserContext()
 	return (
 		<div className={styles['user-info']}>
 			<div className={styles['user-bank']}>
