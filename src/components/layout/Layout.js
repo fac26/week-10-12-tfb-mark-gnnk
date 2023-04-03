@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import TopBar from './TopBar'
 import styles from './Layout.module.css'
 import { useRouter } from 'next/router'
+
 export default function Layout({ children }) {
 	const path = useRouter()
 
@@ -28,7 +29,6 @@ export default function Layout({ children }) {
 	return (
 		<>
 			<TopBar
-				points={20}
 				src="/avatars/avatar1.png"
 				activePath={activePath}
 			/>

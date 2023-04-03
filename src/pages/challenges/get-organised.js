@@ -2,32 +2,55 @@ import styles from '../../styles/Challenges.module.css'
 import HeaderCard from 'components/cards/HeaderCard'
 import ChallengeCategoryList from 'components/challenges/ChallengeCategoryList'
 import DatePrinter from '../../components/layout/DatePrinter'
+import {
+	getTodayTasksByCategory,
+	getTodayScoreByCategory
+} from 'model/helpers/today-tasks'
+import { useState } from 'react'
+import { useUserContext } from '../../context/UserContext.js'
+export default function GetOrganized({ tasks, progress }) {
+	const [data, setData] = useState({ tasks: tasks, progress: progress })
+	const userId = 1
+	const ctx = useUserContext()
 
-export default function GetOrganized({ tasks }) {
 	const completedHandler = async (taskId) => {
+		const taskPoints = data.tasks.find(
+			(task) => task.id === Number(taskId)
+		).points
+
 		const response = await fetch('http://localhost:3000/api/update-status', {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ taskId: 1, date: '2023-03-24' })
+			body: JSON.stringify({ userId: userId, taskId: taskId })
 		})
 
 		if (response.ok) {
-			console.log(`Task ${taskId} has been marked as completed`)
+			setData((prevState) => {
+				const updatedTasks = prevState.tasks.map((task) =>
+					task.id == taskId ? { ...task, status: 1 } : task
+				)
+				const completedTasks = updatedTasks.filter(
+					(task) => task.status === 1
+				).length
+				const totalTasks = updatedTasks.length
+				const newProgress = Math.round((completedTasks / totalTasks) * 100)
+
+				return { tasks: updatedTasks, progress: newProgress }
+			})
+			ctx.updateUserPoints(taskPoints)
 		} else {
 			console.error(response.statusText)
 		}
-		console.log(taskId, ' from pages')
 	}
 
-	console.log(tasks)
 	return (
 		<div className="bg">
 			<HeaderCard
 				preHeaderText={<DatePrinter type={'today'} />}
 				header="Get organised"
-				percentage={66}
+				percentage={data.progress}
 				textColor="black"
 				pathColor="var(--main-lavendar)"
 				trailColor="transparent"
@@ -39,21 +62,10 @@ export default function GetOrganized({ tasks }) {
 			</div>
 			<div className="main-container">
 				<ChallengeCategoryList
-					tasks={tasks}
+					tasks={data.tasks}
 					onCompleted={completedHandler}
 				/>
 			</div>
-
-			{/* <ul>
-				{tasks.map((task) => (
-					<li
-						key={task.id}
-						id={task.id}>
-						<h2>{task.name}</h2>
-						<p>{task.category_name}</p>
-					</li>
-				))}
-			</ul> */}
 		</div>
 	)
 }
@@ -62,17 +74,13 @@ export async function getServerSideProps(context) {
 	//const userId = context.req.session.userId
 
 	const userId = 1
-	// Fetch the tasks data for the user from the API endpoint
-	const response = await fetch(
-		`http://localhost:3000/api/get-organised?userId=${userId}`
-	)
-	const tasks = await response.json()
-	console.log(tasks, ' getOragnised.js')
-
-	// Pass the tasks data as a prop to the page component
+	//category_id: 1,    category_name: 'Get Organised',
+	const tasks = await getTodayTasksByCategory(userId, 1)
+	const progress = await getTodayScoreByCategory(userId, 1)
 	return {
 		props: {
-			tasks
+			tasks,
+			progress
 		}
 	}
 }

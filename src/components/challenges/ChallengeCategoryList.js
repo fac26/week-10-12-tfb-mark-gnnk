@@ -16,7 +16,9 @@ export default function ChallengeCategoryList({ tasks, onCompleted }) {
 		onCompleted(taskIdToComplete)
 		setTaskIdToComplete(null)
 	}
-	const cancelComplete = () => {}
+	const cancelComplete = () => {
+		setShowConfirmationModal(false)
+	}
 	return (
 		<ul>
 			{tasks.map((task) => (
@@ -24,7 +26,7 @@ export default function ChallengeCategoryList({ tasks, onCompleted }) {
 					key={`${task.id}-category-${task.category_id}`}
 					task={task}
 					onChecked={taskCheckedHandler}
-					complete={false} //task.status
+					complete={task.status} //task.status
 				/>
 			))}
 

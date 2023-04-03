@@ -5,9 +5,6 @@ import Adviser from 'components/adviser/Adviser'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 export default function Home({ score }) {
-	const toFixedScore = Math.trunc(score * 100)
-
-	console.log(toFixedScore, ' this is from home page')
 	return (
 		<div className="bg">
 			<div className={`${styles.adviser} main-container`}>
@@ -24,7 +21,7 @@ export default function Home({ score }) {
 				</div>
 
 				<ProgressCircle
-					percentage={toFixedScore}
+					percentage={score}
 					textColor="var(--main-text-black)"
 					pathColor="var(--main-dark-violet)"
 					trailColor="var(--main-light-violet)"
