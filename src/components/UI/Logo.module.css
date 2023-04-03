@@ -1,0 +1,10 @@
+.logo {
+	width: 200px;
+	height: 200px;
+	background: var(--main-white);
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
