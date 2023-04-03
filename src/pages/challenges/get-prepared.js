@@ -1,20 +1,47 @@
 import ChallengeCategoryList from 'components/challenges/ChallengeCategoryList'
 import HeaderCard from 'components/cards/HeaderCard'
-import DatePrinter from '../../components/layout/DatePrinter'
+import DatePrinter from 'components/layout/DatePrinter'
+import styles from 'styles/Challenges.module.css'
+import { useState } from 'react'
+import { useUserContext } from 'context/UserContext'
+import {
+	getTodayTasksByCategory,
+	getTodayScoreByCategory
+} from 'model/helpers/today-tasks'
 
-import styles from '../../styles/Challenges.module.css'
-export default function GetPrepared({ tasks }) {
+export default function GetPrepared({ tasks, progress }) {
+	const [data, setData] = useState({ tasks: tasks, progress: progress })
+	const ctx = useUserContext()
+	const userId = 1
+
 	const completedHandler = async (taskId) => {
+		const taskPoints = data.tasks.find(
+			(task) => task.id === Number(taskId)
+		).points
+
 		const response = await fetch('http://localhost:3000/api/update-status', {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ taskId: 1, date: '2023-03-24' })
+			body: JSON.stringify({ userId: userId, taskId: taskId })
 		})
 
 		if (response.ok) {
-			console.log(`Task ${taskId} has been marked as completed`)
+			setData((prevState) => {
+				const updatedTasks = prevState.tasks.map((task) =>
+					task.id == taskId ? { ...task, status: 1 } : task
+				)
+
+				const completedTasks = updatedTasks.filter(
+					(task) => task.status === 1
+				).length
+				const totalTasks = updatedTasks.length
+				const newProgress = Math.round((completedTasks / totalTasks) * 100)
+
+				return { tasks: updatedTasks, progress: newProgress }
+			})
+			ctx.updateUserPoints(taskPoints)
 		} else {
 			console.error(response.statusText)
 		}
@@ -25,7 +52,7 @@ export default function GetPrepared({ tasks }) {
 			<HeaderCard
 				preHeaderText={<DatePrinter type={'today'} />}
 				header="Get prepared"
-				percentage={75}
+				percentage={data.progress}
 				textColor="black"
 				pathColor="var(--main-lavendar)"
 				trailColor="transparent"
@@ -37,7 +64,7 @@ export default function GetPrepared({ tasks }) {
 			</div>
 			<div className="main-container">
 				<ChallengeCategoryList
-					tasks={tasks}
+					tasks={data.tasks}
 					onCompleted={completedHandler}
 				/>
 			</div>
@@ -47,14 +74,13 @@ export default function GetPrepared({ tasks }) {
 
 export async function getServerSideProps(context) {
 	const userId = 1
-	const response = await fetch(
-		`http://localhost:3000/api/get-prepared?userId=${userId}`
-	)
-	const tasks = await response.json()
+	const tasks = await getTodayTasksByCategory(userId, 2)
+	const progress = await getTodayScoreByCategory(userId, 2)
 
 	return {
 		props: {
-			tasks
+			tasks,
+			progress
 		}
 	}
 }
