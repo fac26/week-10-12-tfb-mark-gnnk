@@ -3,6 +3,7 @@ import {
 	fillHistoryTable,
 	getAllDayTasksByCategory
 } from '../tasks.js'
+import { getAllHabits } from 'model/habits.js'
 
 const today = new Date().toISOString().split('T')[0]
 
@@ -39,6 +40,21 @@ export async function getTodayTasksByCategory(userId, categoryId) {
 		today
 	)
 	return todayTasksByCategory
+}
+
+export async function getTodayScoreWithCategories(userId) {
+	const categories = await getAllHabits()
+
+	const scores = categories.map((category) => {
+		const value = (category.score = getTodayScoreByCategory(
+			userId,
+			category.id
+		))
+
+		return { id: category.id, name: category.name, score: value }
+	})
+
+	return scores
 }
 
 // const resultAllToday = await getTodayTasksByCategory(1, 2)
