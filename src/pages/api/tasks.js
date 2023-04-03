@@ -1,6 +1,6 @@
 import {
 	getAllCurrentTasks,
-	getAllTodayTasks,
+	getAllTasksByDate,
 	fillHistoryTable
 } from 'model/tasks'
 
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
 	console.log(date)
 	const userId = Number(req.query.userId)
 
-	const today_tasks = await getAllTodayTasks(userId, date)
+	const today_tasks = await getAllTasksByDate(userId, date)
 	if (today_tasks.length > 0) {
 		const uncompletedTasks = today_tasks.filter((task) => task.status === 1)
 		const score = uncompletedTasks.length / today_tasks.length
