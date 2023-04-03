@@ -4,6 +4,7 @@ import {
 	getAllDayTasksByCategory
 } from '../tasks.js'
 
+import { getAllHabits } from '../habits.js'
 const today = new Date().toISOString().split('T')[0]
 
 async function todayTasks(userId) {
@@ -18,7 +19,7 @@ async function todayTasks(userId) {
 	return today_tasks
 }
 
-export async function getTodayScoreByCategory(userId, categoryId) {
+export function getTodayScoreByCategory(userId, categoryId) {
 	const today_tasks = getAllDayTasksByCategory(userId, categoryId, today)
 	const uncompletedTasks = today_tasks.filter((task) => task.status === 1)
 	const score = uncompletedTasks.length / today_tasks.length
@@ -41,5 +42,17 @@ export async function getTodayTasksByCategory(userId, categoryId) {
 	return todayTasksByCategory
 }
 
-// const resultAllToday = await getTodayTasksByCategory(1, 2)
-// console.log(resultAllToday, ' all today tasks')
+export async function getTodayScoreWithCategories(userId) {
+	const categories = getAllHabits()
+
+	const scores = categories.map((category) => {
+		const value = (category.score = getTodayScoreByCategory(
+			userId,
+			category.id
+		))
+
+		return { id: category.id, name: category.name, score: value }
+	})
+
+	return scores
+}
