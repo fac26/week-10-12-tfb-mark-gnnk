@@ -18,7 +18,7 @@ export default function Yesterday({ habits, yesterdayScore }) {
 				header={<DatePrinter type={'yesterday'} />}
 				percentage={yesterdayScore}
 				textColor="black"
-				pathColor="var(--main-lavendar)"
+				pathColor="var(--main-lavender)"
 				trailColor="transparent"
 				width={110}
 				strokeWidth={10}
@@ -46,7 +46,7 @@ export default function Yesterday({ habits, yesterdayScore }) {
 								<ProgressCircle
 									percentage={habit.score}
 									textColor="var(--main-text-black"
-									pathColor="var(--main-lavendar)"
+									pathColor="var(--main-lavender)"
 									trailColor="transparent"
 									width={70}
 									strokeWidth={10}

@@ -53,7 +53,7 @@ export default function GetHealthy({ tasks, progress }) {
 				header="Get healthy"
 				percentage={data.progress}
 				textColor="black"
-				pathColor="var(--main-lavendar)"
+				pathColor="var(--main-lavender)"
 				trailColor="transparent"
 				width={110}
 				strokeWidth={10}
