@@ -43,6 +43,7 @@ ul {
 .bg {
 	background-image: var(--mobile-bg-src);
 	width: 100vw;
+	min-height: 100vh;
 	object-fit: fill;
 	z-index: -10;
 	background-repeat: repeat-y;
