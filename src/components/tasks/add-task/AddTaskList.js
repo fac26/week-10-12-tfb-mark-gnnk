@@ -1,6 +1,26 @@
-// render list of the tasks that renders tasks with button <Add>
+import AddTaskItem from './AddTaskItem'
 
-function AddTaskList({ tasks }) {
-	return <></>
+export default function AddTaskList({ tasks }) {
+	if (!tasks) {
+		tasks = [
+			{
+				id: 1,
+				title: 'Placeholder Task',
+				description: 'This is a placeholder task'
+			}
+		]
+	}
+
+	return (
+		<div>
+			<ul>
+				{tasks.map((task) => (
+					<AddTaskItem
+						key={task.id}
+						task={task}
+					/>
+				))}
+			</ul>
+		</div>
+	)
 }
-export default TaskList
