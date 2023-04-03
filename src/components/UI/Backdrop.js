@@ -1,9 +1,11 @@
 import styles from './Backdrop.module.css'
-function Backdrop({ opacity }) {
+function Backdrop({ opacity, children }) {
 	return (
 		<div
 			className={styles.backdrop}
-			style={{ opacity }}></div>
+			style={{ opacity }}>
+			{children}
+		</div>
 	)
 }
 

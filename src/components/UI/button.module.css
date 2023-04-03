@@ -8,6 +8,11 @@
 }
 
 /* Sizes */
+.circle {
+	height: 50px;
+	width: 50px;
+	border-radius: 30px;
+}
 
 .small {
 	font-size: 0.875rem;
@@ -51,6 +56,10 @@
 
 .bg_wht {
 	background: #fff;
+}
+
+.bg_grey {
+	background: #d9d9d9;
 }
 
 /* Effects */
