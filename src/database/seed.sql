@@ -14,11 +14,11 @@ VALUES
 INSERT INTO
 users_profiles
 VALUES
-(1, 1, 1,'Georgia',0),
-(2, 2, 2,'Karol',0),
-(3, 3, 3,'Konstantina',0),
-(4, 4, 4,'Natalia',0),
-(5, 5, 5,'Niete',0);
+(1, 1, 1,'Georgia',100),
+(2, 2, 2,'Karol',100),
+(3, 3, 3,'Konstantina',100),
+(4, 4, 4,'Natalia',100),
+(5, 5, 5,'Niete',100);
 
   
 INSERT INTO
@@ -63,14 +63,20 @@ INSERT INTO current_tasks VALUES (1, 1, 1, '2023-03-24'),
 INSERT INTO 
 avatars
 VALUES
-(1, 'Avatar 1','/avatars/avatar1.png',0),
-(2, 'Avatar 2','/avatars/avatar2.png',0),
-(3, 'Avatar 3','/avatars/avatar3.png',20),
-(4, 'Avatar 4','/avatars/avatar4.png',30),
-(5, 'Avatar 5','/avatars/avatar5.png',40),
-(6, 'Avatar 6','/avatars/avatar6.png',50),
-(7, 'Avatar 7','/avatars/avatar7.png',60),
-(8, 'Avatar 8','/avatars/avatar8.png',70);
+(1, 'Avatar 1','/avatars/Avatar-1.png',0),
+(2, 'Avatar 2','/avatars/Avatar-2.png',0),
+(3, 'Avatar 3','/avatars/Avatar-3.png',20),
+(4, 'Avatar 4','/avatars/Avatar-4.png',30),
+(5, 'Avatar 5','/avatars/Avatar-5.png',40),
+(6, 'Avatar 6','/avatars/Avatar-6.png',50),
+(7, 'Avatar 7','/avatars/Avatar-7.png',60),
+(8, 'Avatar 8','/avatars/Avatar-8.png',70),
+(9, 'Avatar 9','/avatars/Avatar-9.png',80),
+(10, 'Avatar 10','/avatars/Avatar-10.png',90),
+(11, 'Avatar 11','/avatars/Avatar-11.png',100),
+(12, 'Avatar 12','/avatars/Avatar-12.png',110),
+(13, 'Avatar 13','/avatars/Avatar-13.png',120),
+(14, 'Avatar 14','/avatars/Avatar-14.png',130);
 
 INSERT INTO 
 user_avatars
