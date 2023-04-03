@@ -10,9 +10,12 @@ export default function BackButton() {
 	}
 
 	return (
-		<Button onClick={handleClick}>
+		<Button
+			onClick={handleClick}
+			scaling="circle"
+			background="bg-grey">
 			<Image
-				src="/icons/return-back-button.svg"
+				src="/icons/arrow-back.svg"
 				width={20}
 				height={20}
 			/>
