@@ -27,7 +27,7 @@ function getYesterdayScoreByCategory(userId, categoryId) {
 
 export async function getYesterdayScore(userId) {
 	let score
-	const yesterdayTasks = getAllTasksByDate(userId, '2023-03-24')
+	const yesterdayTasks = await getAllTasksByDate(userId, yesterday)
 
 	if (yesterdayTasks.length === 0) {
 		return (score = 0)
@@ -36,11 +36,11 @@ export async function getYesterdayScore(userId) {
 	const uncompletedTasks = yesterdayTasks.filter((task) => task.status === 1)
 
 	score = uncompletedTasks.length / yesterdayTasks.length
-	return score
+	return Math.trunc(score * 100)
 }
 
 export async function getYesterdayScoreWithCategories(userId) {
-	const categories = await getAllHabits()
+	const categories = getAllHabits()
 
 	const scores = categories.map((category) => {
 		const value = (category.score = getYesterdayScoreByCategory(
@@ -53,6 +53,3 @@ export async function getYesterdayScoreWithCategories(userId) {
 
 	return scores
 }
-
-const result = await getYesterdayScoreWithCategories(1)
-console.log(result)
