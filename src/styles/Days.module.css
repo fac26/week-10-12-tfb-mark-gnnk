@@ -7,7 +7,7 @@
 
 .flex-item {
 	margin: 1.3rem auto;
-	color: black;
+	color: var --main-text-black;
 }
 .center {
 	border-top: 2px solid #a0a0a0;
