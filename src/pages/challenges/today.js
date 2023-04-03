@@ -18,7 +18,7 @@ export default function Challenges({ habits, todayScore }) {
 				header={<DatePrinter type={'today'} />}
 				percentage={todayScore}
 				textColor="black"
-				pathColor="var(--main-lavendar)"
+				pathColor="var(--main-lavender)"
 				trailColor="transparent"
 				width={110}
 				strokeWidth={10}
@@ -50,7 +50,7 @@ export default function Challenges({ habits, todayScore }) {
 									<ProgressCircle
 										percentage={habit.score}
 										textColor="var(--main-text-black"
-										pathColor="var(--main-lavendar)"
+										pathColor="var(--main-lavender)"
 										trailColor="transparent"
 										width={70}
 										strokeWidth={10}

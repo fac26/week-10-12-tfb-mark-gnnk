@@ -54,7 +54,7 @@ export default function GetPrepared({ tasks, progress }) {
 				header="Get prepared"
 				percentage={data.progress}
 				textColor="black"
-				pathColor="var(--main-lavendar)"
+				pathColor="var(--main-lavender)"
 				trailColor="transparent"
 				width={110}
 				strokeWidth={10}
