@@ -7,8 +7,8 @@ export default function Logo() {
 			<Image
 				src="/logos/logo-with-text.png"
 				alt="Habits"
-				width={150}
-				height={150}
+				width={200}
+				height={200}
 			/>
 		</div>
 	)
