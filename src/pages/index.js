@@ -11,11 +11,14 @@ export default function Home() {
 				<div className={styles.about}>
 					An app to help you build good habits and get rid of the bad ones.
 				</div>
-				<Button
-					background="bg_wht"
-					scaling="large">
-					<Link href="/home">Ready? Let&rsquo;s go</Link>
-				</Button>
+
+				<Link href="/home">
+					<Button
+						background="bg_wht"
+						scaling="large">
+						Ready? Let&rsquo;s go
+					</Button>
+				</Link>
 			</div>
 		</div>
 	)
