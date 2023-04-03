@@ -55,6 +55,10 @@ const select_completed_by_habits_and_by_day = db.prepare(
 `
 )
 
+export function getCompletedTasksByDate(userId, date) {
+	return select_completed_by_habits_and_by_day.all(userId, date)
+}
+
 const fill_history_table = db.prepare(/*sql*/ `
   INSERT INTO history_tasks (user_id, task_id, date)
   SELECT user_id, task_id, ?
@@ -70,10 +74,6 @@ const fill_history_table = db.prepare(/*sql*/ `
 
 export function fillHistoryTable(date) {
 	return fill_history_table.run(date, date)
-}
-
-export function getCompletedTasksByDate(userId, date) {
-	return select_completed_by_habits_and_by_day.all(userId, date)
 }
 
 const select_uncompleted_by_habits_and_by_day = db.prepare(
