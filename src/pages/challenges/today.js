@@ -1,19 +1,22 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import { getAllHabits } from '../../model/habits'
+
+import {
+	getTodayScoreWithCategories,
+	getTotalTodayScore
+} from '../../model/helpers/today-tasks'
 import DatePrinter from 'components/layout/DatePrinter'
 import ProgressCircle from 'components/cards/ProgressCircle'
 import styles from '../../styles/Challenges.module.css'
 import Rectangle from 'components/cards/Rectangle'
 import HeaderCard from 'components/cards/HeaderCard'
 
-export default function Challenges({ habits }) {
+export default function Challenges({ habits, todayScore }) {
 	return (
 		<div className="bg">
 			<HeaderCard
 				preHeaderText="Your challenges for:"
 				header={<DatePrinter type={'today'} />}
-				percentage={75}
+				percentage={todayScore}
 				textColor="black"
 				pathColor="var(--main-lavendar)"
 				trailColor="transparent"
@@ -45,7 +48,7 @@ export default function Challenges({ habits }) {
 								</div>
 								<div>
 									<ProgressCircle
-										percentage={75}
+										percentage={habit.score}
 										textColor="var(--main-text-black"
 										pathColor="var(--main-lavendar)"
 										trailColor="transparent"
@@ -66,17 +69,13 @@ export async function getServerSideProps(context) {
 	//const userId = context.req.session.userId
 
 	const userId = 1
-	// Fetch the tasks data for the user from the API endpoint
-	// const response = await fetch(
-	// 	`http://localhost:3000/api/tasks?userId=${userId}`
-	// )
-	// const tasks = await response.json()
-	// console.log(tasks, ' index.js')
-	const habits = getAllHabits()
+	const habits = await getTodayScoreWithCategories(userId)
+	const todayScore = await getTotalTodayScore(userId)
 
 	return {
 		props: {
-			habits
+			habits,
+			todayScore
 		}
 	}
 }
