@@ -27,7 +27,7 @@ function getYesterdayScoreByCategory(userId, categoryId) {
 
 export async function getYesterdayScore(userId) {
 	let score
-	const yesterdayTasks = getAllTasksByDate(userId, '2023-03-24')
+	const yesterdayTasks = getAllTasksByDate(userId, yesterday)
 
 	if (yesterdayTasks.length === 0) {
 		return (score = 0)
@@ -53,6 +53,3 @@ export async function getYesterdayScoreWithCategories(userId) {
 
 	return scores
 }
-
-const result = await getYesterdayScoreWithCategories(1)
-console.log(result)
