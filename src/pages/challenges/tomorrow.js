@@ -1,53 +1,82 @@
 import Image from 'next/image'
-import React, { useState } from 'react'
-import DayNotArrivedModal from '../../components/modals/DayNotArrivedModal'
+import { getAllHabits } from '../../model/habits'
+import DatePrinter from 'components/layout/DatePrinter'
+import ProgressCircle from 'components/cards/ProgressCircle'
+import styles from '../../styles/Challenges.module.css'
+import Rectangle from 'components/cards/Rectangle'
+import HeaderCard from 'components/cards/HeaderCard'
+import DayNotArrivedModal from 'components/modals/DayNotArrivedModal'
+import Backdrop from 'components/UI/Backdrop'
 
-export default function Tomorrow(props) {
-	const [showModal, setShowModal] = useState(false)
-
-	//add this function after creating the Days and DateCard component
-	// const handleCardClick = () => {
-	// 	const today = new Date();
-	// 	const tomorrow = new Date(today);
-	// 	tomorrow.setDate(today.getDate() + 1);
-
-	// 	const dayClicked = props.days.find(day => day.date === tomorrow.toISOString().slice(0, 10));
-
-	// 	if (dayClicked) {
-	// 		// display Modal when the user clicks on the card for tomorrow's day
-	// 	} else {
-	// 		setShowModal(true);
-	// 	}
-	// };
-
-	//test Modal with button that calls the setShowModal function to set the showModal state to true
-	const handleOpenModal = () => {
-		setShowModal(true)
-	}
-	//end of testing Modal
-
-	const handleCloseModal = () => {
-		setShowModal(false)
-	}
-
+export default function Challenges({ habits }) {
 	return (
-		//test the Modal
-		//button that calls the setShowModal function
-		// to set the showModal state to true
-		<div>
-			{/* <div>
-				<h1>Tomorrow</h1>
-				<button onClick={handleOpenModal}>Open Modal</button>
-				{showModal && <DayNotArrivedModal onClose={handleCloseModal} />}
-			</div> */}
+		<>
+			<DayNotArrivedModal></DayNotArrivedModal>
+			<Backdrop opacity={0.8}></Backdrop>
+			<div className="bg">
+				<HeaderCard
+					preHeaderText="Your challenges for:"
+					header={<DatePrinter type={'tomorrow'} />}
+					percentage={0}
+					textColor="black"
+					pathColor="var(--main-lavendar)"
+					trailColor="transparent"
+					width={110}
+					strokeWidth={10}
+				/>
 
-			<h1>Tomorrow&apos; challenges</h1>
-			<Image
-				src="/figma/tomorrow.png"
-				width={300}
-				height={600}
-				alt="yesterday screenshot"
-			/>
-		</div>
+				<div className={styles.challengeHeader}>
+					<p>Pick a challenge for today</p>
+				</div>
+
+				<ul className="main-container">
+					{habits.map((habit) => (
+						<li key={habit.id}>
+							<Rectangle
+								backgroundColor="#FFF8F0"
+								display="flex"
+								justifyContent="space-around"
+								textAlign="center">
+								<div className={styles.challengeContainer}>
+									<h3 className={styles.challengeTitle}>{habit.name}</h3>
+									<p className={styles.challengeDesc}>
+										Micro-habits to help you {habit.name.toLowerCase()}
+									</p>
+								</div>
+								<div>
+									<ProgressCircle
+										percentage={0}
+										textColor="var(--main-text-black"
+										pathColor="var(--main-lavendar)"
+										trailColor="transparent"
+										width={70}
+										strokeWidth={10}
+									/>
+								</div>
+							</Rectangle>
+						</li>
+					))}
+				</ul>
+			</div>
+		</>
 	)
+}
+
+export async function getServerSideProps(context) {
+	//const userId = context.req.session.userId
+
+	const userId = 1
+	// Fetch the tasks data for the user from the API endpoint
+	// const response = await fetch(
+	// 	`http://localhost:3000/api/tasks?userId=${userId}`
+	// )
+	// const tasks = await response.json()
+	// console.log(tasks, ' index.js')
+	const habits = getAllHabits()
+
+	return {
+		props: {
+			habits
+		}
+	}
 }
