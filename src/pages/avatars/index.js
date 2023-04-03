@@ -9,7 +9,10 @@ export default function AvatarShop({ avatars }) {
 			<h1 className={styles.heading}>The Avatar Shop</h1>
 			<div className={styles.divider}></div>
 			<div className="main-container">
-				<AvatarList avatars={avatars} />
+				<AvatarList
+					avatars={avatars}
+					points={100}
+				/>
 			</div>
 		</div>
 	)
