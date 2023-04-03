@@ -1,5 +1,4 @@
 import DayItem from './DayItem'
-import ProgressCircle from 'components/cards/ProgressCircle'
 
 const completeMessage =
 	"Well done! You've completed all of your micro habits for this day."
@@ -15,44 +14,20 @@ export default function DayList({ yesterdayScore, todayScore }) {
 			<DayItem
 				type="yesterday"
 				text={yesterdayScore < 100 ? incompleteMessage : completeMessage}
-				progressBar={
-					<ProgressCircle
-						percentage={yesterdayScore}
-						textColor="black"
-						pathColor="var(--main-lavender)"
-						trailColor="transparent"
-						width={120}
-						strokeWidth={11}
-					/>
-				}
+				percentage={yesterdayScore}
+				href="/challenges/yesterday"
 			/>
 			<DayItem
 				type="today"
 				text={todayScore < 100 ? incompleteMessage : completeMessage}
-				progressBar={
-					<ProgressCircle
-						percentage={todayScore}
-						textColor="black"
-						pathColor="var(--main-lavender)"
-						trailColor="transparent"
-						width={120}
-						strokeWidth={11}
-					/>
-				}
+				percentage={todayScore}
+				href="/challenges/today"
 			/>
 			<DayItem
 				type="tomorrow"
 				text={futureMessage}
-				progressBar={
-					<ProgressCircle
-						percentage={0}
-						textColor="black"
-						pathColor="var(--main-lavender)"
-						trailColor="transparent"
-						width={120}
-						strokeWidth={11}
-					/>
-				}
+				percentage={0}
+				href="/challenges/tomorrow"
 			/>
 		</div>
 	)
