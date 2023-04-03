@@ -17,8 +17,10 @@ export default function DayItem({ type, text, href, percentage }) {
 		<Rectangle backgroundColor="#FFF8F0">
 			<div className={styles.flex}>
 				<div className={styles.flexItem}>
-					<p>{message}</p>
-					<DatePrinter type={type} />
+					<p className={styles['day-indicator']}>{message}</p>
+					<div className={styles.day}>
+						<DatePrinter type={type} />
+					</div>
 					<p>{text}</p>
 					<Link href={href}>
 						<Button scaling="medium">Review your tasks</Button>

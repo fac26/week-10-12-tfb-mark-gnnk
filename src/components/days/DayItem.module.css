@@ -5,13 +5,18 @@
 }
 
 .flexItem {
-	line-height: 2rem;
-	margin: 0.3rem;
+	width: 70%;
+}
+.flexItem > * {
+	margin: 0.4rem 0;
+}
+.day-indicator {
+	font-size: 0.7rem;
 }
 
-.flexItem span:nth-child(2) {
+.day time {
 	font-weight: 800;
-	font-size: 1.3rem;
+	font-size: 1rem;
 }
 
 .flexItem Button:nth-child(4) {
@@ -19,5 +24,5 @@
 }
 
 .progressBarWrapper {
-	width: 10rem;
+	width: 7.5rem;
 }

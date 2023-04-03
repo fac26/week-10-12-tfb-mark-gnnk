@@ -10,7 +10,7 @@ const futureMessage =
 // expects number 0-100 for progress trackers
 export default function DayList({ yesterdayScore, todayScore }) {
 	return (
-		<div className="dayList">
+		<div>
 			<DayItem
 				type="yesterday"
 				text={yesterdayScore < 100 ? incompleteMessage : completeMessage}
