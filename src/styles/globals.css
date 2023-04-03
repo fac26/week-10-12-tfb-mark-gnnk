@@ -10,11 +10,12 @@
 	--main-dark-violet: #473982;
 	--main-light-violet: #47398245;
 	--main-text-black: #030303;
-	--mobile-nav-height: 60px;
+	--mobile-nav-height: 3.75rem;
 	--lg-width: 85%;
-	--lg-max-width: 600px;
+	--lg-max-width: 37.5rem;
 	--md-width: 90%;
-	--md-max-width: 500px;
+	--md-max-width: 31.25rem;
+	--top-nav-height: 3.75rem;
 	--mobile-bg-src: url('/backgrounds/Background-Mobile.png');
 	--desktop-bg-src: url('/backgrounds/Background-Desktop.png');
 }
@@ -42,10 +43,11 @@ ul {
 .bg {
 	background-image: var(--mobile-bg-src);
 	width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
 	object-fit: fill;
 	z-index: -10;
 	background-repeat: repeat-y;
+	padding-top: var(--top-nav-height);
 	padding-bottom: var(--mobile-nav-height);
 }
 
