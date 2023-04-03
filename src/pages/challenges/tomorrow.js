@@ -6,13 +6,12 @@ import styles from '../../styles/Challenges.module.css'
 import Rectangle from 'components/cards/Rectangle'
 import HeaderCard from 'components/cards/HeaderCard'
 import DayNotArrivedModal from 'components/modals/DayNotArrivedModal'
-import Backdrop from 'components/UI/Backdrop'
 
 export default function Challenges({ habits }) {
 	return (
 		<>
-			<DayNotArrivedModal></DayNotArrivedModal>
-			<Backdrop opacity={0.8}></Backdrop>
+			<DayNotArrivedModal />
+
 			<div className="bg">
 				<HeaderCard
 					preHeaderText="Your challenges for:"
@@ -62,16 +61,7 @@ export default function Challenges({ habits }) {
 	)
 }
 
-export async function getServerSideProps(context) {
-	//const userId = context.req.session.userId
-
-	const userId = 1
-	// Fetch the tasks data for the user from the API endpoint
-	// const response = await fetch(
-	// 	`http://localhost:3000/api/tasks?userId=${userId}`
-	// )
-	// const tasks = await response.json()
-	// console.log(tasks, ' index.js')
+export async function getStaticProps(context) {
 	const habits = getAllHabits()
 
 	return {
