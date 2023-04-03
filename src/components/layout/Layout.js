@@ -29,7 +29,7 @@ export default function Layout({ children }) {
 	return (
 		<>
 			<TopBar
-				src="/avatars/avatar1.png"
+				src="/avatars/Avatar-1.png"
 				activePath={activePath}
 			/>
 			<div className={styles.main}>{children}</div>
