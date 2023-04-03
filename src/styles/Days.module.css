@@ -10,7 +10,7 @@
 	color: var --main-text-black;
 }
 .center {
-	border-top: 2px solid #a0a0a0;
+	border-top: 2px solid var --main-border-grey;
 	padding: 1rem 0;
 	min-height: 30vh;
 }

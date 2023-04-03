@@ -30,7 +30,7 @@ export default function GetHealthy({ tasks }) {
 				header="Get healthy"
 				percentage={75}
 				textColor="black"
-				pathColor="var(--main-lavendar)"
+				pathColor="var(--main-lavender)"
 				trailColor="transparent"
 				width={110}
 				strokeWidth={10}

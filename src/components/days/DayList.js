@@ -20,7 +20,7 @@ export default function DayList({ yesterdayProgress, todayProgress }) {
 					<ProgressCircle
 						percentage={yesterdayProgress}
 						textColor="black"
-						pathColor="var(--main-lavendar)"
+						pathColor="var(--main-lavender)"
 						trailColor="transparent"
 						width={120}
 						strokeWidth={11}
@@ -34,7 +34,7 @@ export default function DayList({ yesterdayProgress, todayProgress }) {
 					<ProgressCircle
 						percentage={todayProgress}
 						textColor="black"
-						pathColor="var(--main-lavendar)"
+						pathColor="var(--main-lavender)"
 						trailColor="transparent"
 						width={120}
 						strokeWidth={11}
@@ -48,7 +48,7 @@ export default function DayList({ yesterdayProgress, todayProgress }) {
 					<ProgressCircle
 						percentage={0}
 						textColor="black"
-						pathColor="var(--main-lavendar)"
+						pathColor="var(--main-lavender)"
 						trailColor="transparent"
 						width={120}
 						strokeWidth={11}
