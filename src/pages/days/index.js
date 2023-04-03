@@ -12,10 +12,10 @@ export default function Days({ yesterdayScore, todayScore }) {
 				<Adviser
 					src="/icons/bear.png"
 					text="Welcome back! Click on one of the days to see how you're getting on with your habits."
-					speechBg={`var(--main-white)`}
+					speechBg={`var(--main-beige)`}
 				/>
 			</div>
-			<div className={`${styles.flex} ${styles.center} main-container`}>
+			<div className="main-container">
 				<DayList
 					yesterdayScore={yesterdayScore}
 					todayScore={todayScore}
