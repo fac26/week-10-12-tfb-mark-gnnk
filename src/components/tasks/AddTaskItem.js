@@ -16,7 +16,7 @@ export default function AddTaskItem({ task, onClick }) {
 				<Button
 					scaling="small"
 					weight="bold"
-					onClick={onClick}>
+					onClick={onClick.bind(null, task)}>
 					ADD
 				</Button>
 			</Rectangle>
