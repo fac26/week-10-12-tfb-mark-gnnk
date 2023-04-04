@@ -1,8 +1,10 @@
-import AddTaskList from 'components/tasks/add-task/AddTaskList'
+import AddTaskList from 'components/tasks/AddTaskList'
 import Adviser from 'components/adviser/Adviser'
 import styles from 'styles/Home.module.css'
+import { getAllTasks } from 'model/tasks'
 
-export default function AddTaskPage() {
+export default function AddTaskPage({ tasks }) {
+	const addTask = () => {}
 	return (
 		<div className="bg">
 			<div className="main-container">
@@ -13,8 +15,26 @@ export default function AddTaskPage() {
 						speechBg={`var(--main-white)`}
 					/>
 				</div>
-				<AddTaskList />
+				<AddTaskList
+					tasks={tasks}
+					onClick={addTask}
+				/>
 			</div>
 		</div>
 	)
 }
+
+export async function getServerSideProps(context) {
+	const userId = 1
+	const tasks = await getAllTasks(userId) //array of objects with category name and id
+
+	return {
+		props: {
+			tasks
+		}
+	}
+}
+
+//1. as soon as user clicks add, insert new row into current tasks
+//2. update history tasks
+//3. remove from add-task list (disappear from the page) so you cannot add the same task twice
