@@ -11,6 +11,7 @@ export default function AvatarList({ avatars, onBuy }) {
 		if (points >= avatar.price) {
 			updateUserPoints(-avatar.price)
 			onBuy(avatar)
+			//update list of avatars!!
 			console.log(`You have bought ${avatar.name} for ${avatar.price} coins!`)
 		} else {
 			console.log(

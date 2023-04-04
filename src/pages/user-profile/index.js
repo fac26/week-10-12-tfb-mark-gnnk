@@ -1,4 +1,4 @@
-import { getUserPoints, getUserAvatars } from '../../model/user-profile.js'
+import { getUserAvatars } from '../../model/user-profile.js'
 import AvatarItem from 'components/avatars/AvatarItem.js'
 import { useUserContext } from 'context/UserContext.js'
 import styles from '../../styles/Avatar.module.css'
@@ -48,12 +48,10 @@ export async function getServerSideProps(context) {
 	//const userId = context.req.session.userId
 
 	const userId = 1
-	const points = await getUserPoints(userId)
 	const avatars = await getUserAvatars(userId)
 
 	return {
 		props: {
-			points,
 			avatars
 		}
 	}
