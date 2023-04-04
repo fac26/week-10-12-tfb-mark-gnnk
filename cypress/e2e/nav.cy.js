@@ -21,8 +21,8 @@ describe('Homepage to Challenges', () => {
 		cy.url().should('include', '/challenges/today')
 
 		cy.get('h3').should(($h3s) => {
-      expect($h3s).to.have.lengthOf.at.least(4)
-    })
+			expect($h3s).to.have.lengthOf.at.least(4)
+		})
 	})
 })
 
@@ -35,8 +35,7 @@ describe('Homepage to Calendar view', () => {
 		cy.url().should('include', '/days')
 
 		cy.get('time').should(($timess) => {
-      expect($timess).to.have.lengthOf.at.least(3)
-    })
+			expect($timess).to.have.lengthOf.at.least(3)
+		})
 	})
 })
-
