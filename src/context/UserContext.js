@@ -16,24 +16,19 @@ export const UserProvider = ({ children, userId }) => {
 	const [points, setPoints] = useState(0)
 	const [avatar, setAvatar] = useState(1)
 	useEffect(() => {
-		const fetchInitialPoints = async () => {
+		const fetchInitialUserData = async () => {
 			try {
-				const response = await fetch(`/api/get-points?userId=${userId}`)
-				const data = await response.json()
-				setPoints(data.user_points)
+				const response = await fetch(`/api/get-user-data?userId=${userId}`)
+				const { userAvatar, userPoints } = await response.json()
+				console.log(userAvatar, userPoints, ' User context data')
+				setPoints(userPoints)
+				setAvatar(userAvatar)
 			} catch (error) {
 				console.error('Error fetching points:', error)
 			}
 		}
-		const fetchInitialAvatar = async () => {
-			const response = await fetch(`/api/get-userAvatar?userId=${userId}`)
-			const { userAvatar } = await response.json()
-			console.log(userAvatar, ' fetch avatar')
-			setAvatar(userAvatar)
-		}
 
-		fetchInitialPoints()
-		fetchInitialAvatar()
+		fetchInitialUserData()
 	}, [userId])
 
 	const updateUserPoints = (newPoints) => {
