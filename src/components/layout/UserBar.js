@@ -1,9 +1,9 @@
 import Image from 'next/image'
-
+import Link from 'next/link'
 import styles from './UserBar.module.css'
 import { useUserContext } from '../../context/UserContext.js'
-function UserBar({ src }) {
-	const { points } = useUserContext()
+function UserBar() {
+	const { points, avatar } = useUserContext()
 	return (
 		<div className={styles['user-info']}>
 			<div className={styles['user-bank']}>
@@ -18,12 +18,14 @@ function UserBar({ src }) {
 				<div>{points}</div>
 			</div>
 			<div>
-				<Image
-					src={src}
-					alt="user-avatar"
-					width={40}
-					height={40}
-				/>
+				<Link href="/user-profile">
+					<Image
+						src={avatar.img_src}
+						alt="user-avatar"
+						width={40}
+						height={40}
+					/>
+				</Link>
 			</div>
 		</div>
 	)
