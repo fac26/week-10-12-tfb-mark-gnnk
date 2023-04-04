@@ -12,7 +12,12 @@ function CongratsModal({ title, message, buttonText, onClick }) {
 				height={40}
 			/>
 			<p>{message}</p>
-			<Button onClick={onClick}>{buttonText}</Button>
+			<Button
+				onClick={onClick}
+				scaling="x_large"
+				background="bg_purple">
+				{buttonText}
+			</Button>
 		</Modal>
 	)
 }
