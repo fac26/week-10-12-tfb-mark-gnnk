@@ -1,11 +1,10 @@
 import { getUserPoints, getUserAvatars } from '../../model/user-profile.js'
 import AvatarItem from 'components/avatars/AvatarItem.js'
-import styles from '../../styles/User.module.css'
 import { useUserContext } from 'context/UserContext.js'
-export default function User({ points, avatars }) {
+import styles from '../../styles/Avatar.module.css'
+export default function User({ avatars }) {
 	const ctx = useUserContext()
 	const updateAvatarHandler = async (avatar) => {
-		console.log('clicked ', avatar)
 		const userId = 1
 
 		const response = await fetch('/api/user-profile', {
@@ -24,25 +23,23 @@ export default function User({ points, avatars }) {
 	}
 	return (
 		<div className="bg">
-			<form>
-				<div>
-					<label>Name</label>
-					<input />
-				</div>
-				<button>Update</button>
-			</form>
-			<ul className={styles.gridLayout}>
-				{avatars.map((avatar) => (
-					<AvatarItem
-						key={avatar.id}
-						id={avatar.id}
-						src={avatar.img_src}
-						price={avatar.price}
-						avatarName={avatar.name}
-						onClick={() => updateAvatarHandler(avatar)}
-					/>
-				))}
-			</ul>
+			<h1 className={styles.heading}>Update your avatar</h1>
+			<div className={styles.divider}></div>
+
+			<div className="main-container">
+				<ul className={styles.gridLayout}>
+					{avatars.map((avatar) => (
+						<AvatarItem
+							key={avatar.id}
+							id={avatar.id}
+							src={avatar.img_src}
+							price={avatar.price}
+							avatarName={avatar.name}
+							onClick={() => updateAvatarHandler(avatar)}
+						/>
+					))}
+				</ul>
+			</div>
 		</div>
 	)
 }

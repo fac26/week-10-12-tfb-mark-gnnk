@@ -13,3 +13,17 @@
 	margin-right: auto;
 	margin-bottom: 2rem;
 }
+
+/* for update avatar page */
+.gridLayout {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(175px, 2fr));
+	margin: auto;
+	gap: 1rem;
+}
+
+@media (min-width: 620px) {
+	.gridLayout {
+		grid-template-columns: repeat(3, minmax(175px, 2fr));
+	}
+}
