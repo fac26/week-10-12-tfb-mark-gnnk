@@ -118,5 +118,14 @@ export function getAllDayTasksByCategory(id, habitId, day) {
 	return select_all_day_tasks_by_category.all(id, habitId, day)
 }
 
+const select_all_tasks = db.prepare(
+	/*sql */
+	`SELECT tasks.id, tasks.name, tasks.category_id
+  FROM tasks`
+)
+
+export function getAllTasks() {
+	return select_all_tasks.all()
+}
 // const result = getAllDayTasksByCategory(1, 2, '2023-03-30')
 // console.log(result, ' from tasks.js')
