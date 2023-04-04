@@ -37,17 +37,6 @@ export function getUserAvatars(userId) {
 	return get_user_avatars.all(userId)
 }
 
-// const update_user_avatar = db.prepare(/*sql*/ `
-//   UPDATE users_profiles
-//   SET user_avatar = (
-//     SELECT id
-//     FROM user_avatars
-//     WHERE user_id = ?
-//       AND avatar_id = ?
-//   )
-//   WHERE user_id = ?;
-// `)
-
 const update_user_avatar = db.prepare(/*sql*/ `
   UPDATE users_profiles
   SET user_avatar = (
@@ -80,6 +69,19 @@ export function getUserCurrentAvatar(userId) {
 	return get_user_current_avatar.get(userId)
 }
 
-// const result = updateUserAvatar(1, 14) //avatarId, userId
+const reduce_user_points = db.prepare(
+	/*sql*/
+	`
+  UPDATE users_profiles
+  SET user_points = user_points - ?
+  WHERE user_id = ?;
+  `
+)
+
+export function reduceUserPoints(userId, points) {
+	return reduce_user_points.run(points, userId)
+}
+
+// const result = reduceUserPoints(1, 20) //avatarId, userId
 
 // console.log(result)
