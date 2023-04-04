@@ -6,12 +6,11 @@ export default function AddTaskList({ tasks, onClick }) {
 			<ul>
 				{tasks.map((task) => {
 					return (
-						<li key={task.id}>
-							<AddTaskItem
-								task={task}
-								onClick={onClick}
-							/>
-						</li>
+						<AddTaskItem
+							key={task.id}
+							task={task}
+							onClick={onClick}
+						/>
 					)
 				})}
 			</ul>
