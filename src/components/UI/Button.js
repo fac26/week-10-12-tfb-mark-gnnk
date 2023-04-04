@@ -7,9 +7,10 @@ export default function Button({
 	scaling = 'small',
 	weight = 'normal'
 }) {
+	const btnStyles = `${container} ${styles[background]} ${styles[scaling]} ${styles[weight]}`
 	return (
 		<button
-			className={`${container} ${styles[background]} ${styles[scaling]} ${styles[weight]}`}
+			className={btnStyles}
 			onClick={onClick}>
 			{children}
 		</button>

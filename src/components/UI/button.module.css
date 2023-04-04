@@ -55,11 +55,15 @@
 }
 
 .bg_wht {
-	background: #fff;
+	background: var(--main-white);
 }
 
 .bg_grey {
 	background: #d9d9d9;
+}
+.bg_purple {
+	background: var(--btn-purple);
+	color: var(--main-white);
 }
 
 /* Effects */
@@ -72,6 +76,11 @@
 	background: #e6e6e6;
 }
 
-.bg_blu:hover {
+.bg_blu:hover,
+.bg_purple:hover {
 	background: #a4b2d2;
+}
+
+.bg_purple:hover {
+	color: var(--main-black);
 }
