@@ -4,9 +4,27 @@ import { getAllAvatars } from '../../model/avatars'
 import styles from '../../styles/Avatar.module.css'
 
 export default function AvatarShop({ avatars }) {
-	const buyAvatarHandler = (avatar) => {
-		console.log(avatar, ' you buy')
-		// update db and list of avatars to buy
+	const buyAvatarHandler = async (avatar) => {
+		const userId = 1
+		console.log(avatar)
+		const response = await fetch('/api/add-avatars', {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+
+			body: JSON.stringify({
+				userId: userId,
+				avatarId: avatar.id,
+				points: avatar.price
+			})
+		})
+
+		if (response.ok) {
+			console.log('ok , should update now the list')
+		} else {
+			console.error(response.statusText)
+		}
 	}
 
 	return (
