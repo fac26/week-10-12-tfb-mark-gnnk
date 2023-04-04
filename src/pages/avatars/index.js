@@ -1,9 +1,11 @@
 import Image from 'next/image'
 import AvatarList from 'components/avatars/AvatarList'
-import { getAllAvatars } from '../../model/avatars'
+import { getAvatarsNotAssignedToUser } from '../../model/avatars'
 import styles from '../../styles/Avatar.module.css'
+import { useState } from 'react'
 
 export default function AvatarShop({ avatars }) {
+	const [avatarsList, setAvatarsList] = useState(avatars)
 	const buyAvatarHandler = async (avatar) => {
 		const userId = 1
 		console.log(avatar)
@@ -22,6 +24,9 @@ export default function AvatarShop({ avatars }) {
 
 		if (response.ok) {
 			console.log('ok , should update now the list')
+			setAvatarsList((currentAvatars) =>
+				currentAvatars.filter((avatarEl) => avatarEl.id !== avatar.id)
+			)
 		} else {
 			console.error(response.statusText)
 		}
@@ -33,7 +38,7 @@ export default function AvatarShop({ avatars }) {
 			<div className={styles.divider}></div>
 			<div className="main-container">
 				<AvatarList
-					avatars={avatars}
+					avatars={avatarsList}
 					onBuy={buyAvatarHandler}
 				/>
 			</div>
@@ -42,7 +47,8 @@ export default function AvatarShop({ avatars }) {
 }
 
 export async function getServerSideProps(context) {
-	const avatars = getAllAvatars()
+	const userId = 1
+	const avatars = await getAvatarsNotAssignedToUser(userId)
 
 	return {
 		props: {
