@@ -1,13 +1,17 @@
 import AvatarItem from 'components/avatars/AvatarItem'
 import styles from './AvatarList.module.css'
 import { useState } from 'react'
+import { useUserContext } from 'context/UserContext'
 
-export default function AvatarList({ avatars }) {
-	const [points, setPoints] = useState(0)
+export default function AvatarList({ avatars, onBuy }) {
+	const { points, updateUserPoints } = useUserContext()
+	//const [confirmBuy, setConfirmBuy] = useState(false)
 
 	function handleAvatarClick(avatar) {
 		if (points >= avatar.price) {
-			setPoints(points - avatar.price)
+			updateUserPoints(-avatar.price)
+			onBuy(avatar)
+			//update list of avatars!!
 			console.log(`You have bought ${avatar.name} for ${avatar.price} coins!`)
 		} else {
 			console.log(

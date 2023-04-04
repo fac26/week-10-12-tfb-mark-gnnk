@@ -1,14 +1,26 @@
 import React from 'react'
+import BackButton from 'components/UI/BackButton'
+import styles from './DayNotArrivedModal.module.css'
+import DatePrinter from 'components/Layout/DatePrinter'
 
-function DayNotArrivedModal(props) {
+function DayNotArrivedModal() {
 	return (
-		<div className="modal">
-			<div className="modal-content">
-				<h2>Jumping ahead?</h2>
+		<div className={styles.container}>
+			<div className={styles.darkmodal}>
 				<p>
-					This day has not arrived yet. Please come back for this page tomorrow.
+					It&apos;s not&nbsp;
+					{
+						<DatePrinter
+							type={'tomorrow'}
+							formatString="EEEE"
+						/>
+					}
+					&nbsp;yet.
 				</p>
-				<button onClick={props.onClose}>OK!</button>
+
+				<p>Come back tomorrow to try out some new challenges.</p>
+
+				<BackButton />
 			</div>
 		</div>
 	)

@@ -1,0 +1,28 @@
+.flex {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.flexItem {
+	width: 70%;
+}
+.flexItem > * {
+	margin: 0.4rem 0;
+}
+.day-indicator {
+	font-size: 0.7rem;
+}
+
+.day time {
+	font-weight: 800;
+	font-size: 1rem;
+}
+
+.flexItem Button:nth-child(4) {
+	margin-top: 1rem;
+}
+
+.progressBarWrapper {
+	width: 7.5rem;
+}

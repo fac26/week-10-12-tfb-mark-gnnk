@@ -5,19 +5,23 @@
 	--main-white: #ffffff;
 	--main-beige: #fff8f0;
 	--main-green: #bcf0e4;
-	--main-lavendar: #b6aada;
+	--main-lavender: #b6aada;
 	--main-blue: #bccbec;
 	--main-dark-violet: #473982;
 	--main-light-violet: #47398245;
 	--main-text-black: #030303;
+	--main-border-grey: #a0a0a0;
 	--mobile-nav-height: 3.75rem;
 	--lg-width: 85%;
 	--lg-max-width: 37.5rem;
 	--md-width: 90%;
 	--md-max-width: 31.25rem;
+	--sm-width: 85%;
+	--sm-max-width: 16rem;
 	--top-nav-height: 3.75rem;
 	--mobile-bg-src: url('/backgrounds/Background-Mobile.png');
 	--desktop-bg-src: url('/backgrounds/Background-Desktop.png');
+	--desktop-landing-bg-src: url('/backgrounds/landing-page.jpg');
 }
 
 * {
@@ -45,6 +49,17 @@ ul {
 	width: 100vw;
 	min-height: 100vh;
 	object-fit: fill;
+	z-index: -10;
+	background-repeat: repeat-y;
+	padding-top: var(--top-nav-height);
+	padding-bottom: var(--mobile-nav-height);
+}
+
+.landing-bg {
+	background-image: var(--desktop-landing-bg-src);
+	width: 100vw;
+	height: 100vh;
+	background-size: cover;
 	z-index: -10;
 	background-repeat: repeat-y;
 	padding-top: var(--top-nav-height);

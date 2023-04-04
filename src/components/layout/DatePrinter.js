@@ -1,6 +1,9 @@
 import { parseISO, format, addDays, isValid } from 'date-fns'
 
-export default function DatePrinter({ type = 'today' }) {
+export default function DatePrinter({
+	type = 'today',
+	formatString = 'EEEE do MMMM'
+}) {
 	let date
 
 	switch (type) {
@@ -24,7 +27,7 @@ export default function DatePrinter({ type = 'today' }) {
 
 	return (
 		<span>
-			<time dateTime={date.toISOString()}>{format(date, 'EEEE do MMMM')}</time>
+			<time dateTime={date.toISOString()}>{format(date, formatString)}</time>
 		</span>
 	)
 }

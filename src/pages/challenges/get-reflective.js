@@ -52,7 +52,7 @@ export default function GetOrganized({ tasks, progress }) {
 				header="Get reflective"
 				percentage={data.progress}
 				textColor="black"
-				pathColor="var(--main-lavendar)"
+				pathColor="var(--main-lavender)"
 				trailColor="transparent"
 				width={110}
 				strokeWidth={10}

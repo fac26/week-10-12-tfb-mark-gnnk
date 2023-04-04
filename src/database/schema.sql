@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS users_profiles (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   user_id INTEGER REFERENCES users(id),
-  user_avatar INTEGER REFERENCES users_avatars(id),
+  user_avatar INTEGER REFERENCES user_avatars(id),
   user_name TEXT, 
   user_points INTEGER
 );
