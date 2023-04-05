@@ -2,9 +2,33 @@ import AddTaskList from 'components/tasks/AddTaskList'
 import Adviser from 'components/adviser/Adviser'
 import styles from 'styles/Home.module.css'
 import { getAllTasks } from 'model/tasks'
+import { useState } from 'react'
 
 export default function AddTaskPage({ tasks }) {
-	const addTask = () => {}
+	const [tasksList, setTasksLits] = useState(tasks)
+	const addTaskHandler = async (task) => {
+		const userId = 1
+		const response = await fetch('/api/add-task', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+
+			body: JSON.stringify({
+				userId: userId,
+				taskId: task.id
+			})
+		})
+
+		if (response.ok) {
+			setTasksLits((currentTasks) =>
+				currentTasks.filter((taskItem) => taskItem.id !== task.id)
+			)
+		} else {
+			console.error(response.statusText)
+		}
+	}
+
 	return (
 		<div className="bg">
 			<div className="main-container">
@@ -16,8 +40,8 @@ export default function AddTaskPage({ tasks }) {
 					/>
 				</div>
 				<AddTaskList
-					tasks={tasks}
-					onClick={addTask}
+					tasks={tasksList}
+					onClick={addTaskHandler}
 				/>
 			</div>
 		</div>
