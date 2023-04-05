@@ -9,7 +9,7 @@ function Adviser({ src, text, speechBg }) {
 				src={src}
 				alt="bear"
 				width={100}
-				height={100}
+				height={120}
 			/>
 		</div>
 	)
