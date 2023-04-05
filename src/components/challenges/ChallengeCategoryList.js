@@ -13,8 +13,6 @@ export default function ChallengeCategoryList({ tasks, onCompleted }) {
 	const [taskIdToComplete, setTaskIdToComplete] = useState(null)
 
 	const taskCheckedHandler = (event) => {
-		console.log('checked')
-
 		setTaskIdToComplete(event.target.id)
 		setShowConfirmationModal(true)
 		setShowBackdrop(true)

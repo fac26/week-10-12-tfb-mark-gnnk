@@ -83,5 +83,3 @@ export function reduceUserPoints(userId, points) {
 }
 
 // const result = reduceUserPoints(1, 20) //avatarId, userId
-
-// console.log(result)
