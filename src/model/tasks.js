@@ -135,3 +135,24 @@ const select_all_tasks = db.prepare(
 export function getAllTasks(user_id) {
 	return select_all_tasks.all(user_id)
 }
+
+const insert_current_task = db.prepare(
+	/*sql*/
+	`
+	INSERT INTO current_tasks (user_id, task_id, date_task_added)
+	VALUES (?, ?, date('now'))
+	`
+)
+
+const insert_history_task = db.prepare(
+	/*sql*/
+	`
+	INSERT INTO history_tasks (user_id, task_id, status, date)
+	VALUES (?, ?, 0, date('now'))
+	`
+)
+
+export function addTaskToUser(userId, taskId) {
+	insert_current_task.run(userId, taskId)
+	insert_history_task.run(userId, taskId)
+}
