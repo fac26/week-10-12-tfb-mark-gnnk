@@ -1,5 +1,5 @@
 describe('Mobile NavBar Navigation', () => {
-	it('should navigate from home to the challenges page, via the main circle indicator', () => {
+	it('starting at home in mobile view, the bottom navbar should display and access its displayed links', () => {
 		cy.visit('http://localhost:3000/home')
 
 		cy.viewport('iphone-6')
