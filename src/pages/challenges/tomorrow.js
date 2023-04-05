@@ -61,7 +61,7 @@ export default function Challenges({ habits }) {
 }
 
 export async function getStaticProps(context) {
-	const habits = getAllHabits()
+	const habits = await getAllHabits()
 
 	return {
 		props: {

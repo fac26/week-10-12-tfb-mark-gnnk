@@ -16,6 +16,7 @@ export default function BackButton() {
 			background="bg-grey">
 			<Image
 				src="/icons/arrow-back.svg"
+				alt="back"
 				width={20}
 				height={20}
 			/>

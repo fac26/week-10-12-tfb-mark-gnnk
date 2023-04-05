@@ -20,14 +20,13 @@ export default function DatePrinter({
 			date = parseISO(type)
 	}
 
-	const isValidDate = isValid(date)
-	if (!isValidDate) {
-		return <span>Date not valid!</span>
-	}
-
 	return (
 		<span>
-			<time dateTime={date.toISOString()}>{format(date, formatString)}</time>
+			{isValid(date) ? (
+				<time dateTime={date.toISOString()}>{format(date, formatString)}</time>
+			) : (
+				<span>Date not valid!</span>
+			)}
 		</span>
 	)
 }
