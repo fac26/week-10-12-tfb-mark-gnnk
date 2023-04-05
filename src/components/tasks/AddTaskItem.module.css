@@ -1,5 +1,14 @@
-.title {
-	font-size: 1.5rem;
-	font-weight: 700;
-	margin-bottom: 1rem;
+.taskContainer {
+	padding: 1rem;
+}
+
+.taskTitle {
+	font-size: 13pt;
+	font-weight: 800;
+	padding-bottom: 0.5rem;
+}
+
+.taskName {
+	width: 22rem;
+	font-size: 10pt;
 }

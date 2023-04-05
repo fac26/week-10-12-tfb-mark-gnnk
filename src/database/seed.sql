@@ -14,11 +14,7 @@ VALUES
 INSERT INTO
 users_profiles
 VALUES
-(1, 1, 1,'Georgia',100),
-(2, 2, 2,'Karol',100),
-(3, 3, 3,'Konstantina',100),
-(4, 4, 4,'Natalia',100),
-(5, 5, 5,'Niete',100);
+(1, 1, 1,'Georgia',100);
 
   
 INSERT INTO
@@ -45,7 +41,12 @@ VALUES
 (11, 'Write down something you did that was difficult but you stuck at it',4,1), 
 (12, 'Write down something you want to work on tomorrow',4,1),
 (13, 'Complete a 10 minute walk',3,1),
-(14, 'Complete a 20 minute walk',3,1);
+(14, 'Complete a 20 minute walk',3,1),
+(15, 'Play any sport for atleast 30 minutes',3,1),
+(16, 'Hand in homework',1,1),
+(17, 'Complete homework',2,1),
+(18, 'Do 2 minutes of breathwork',3,1),
+(19, 'Talk to a friend about anything that is bothering you',4,1);
 
 INSERT INTO current_tasks VALUES (1, 1, 1, '2023-03-24'),
 (2, 1, 2, '2023-03-24'),
