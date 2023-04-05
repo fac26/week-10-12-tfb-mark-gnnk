@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { getAllHabits } from '../../model/habits'
 import DatePrinter from 'components/layout/DatePrinter'
 import ProgressCircle from 'components/cards/ProgressCircle'
