@@ -1,11 +1,12 @@
 .modal {
 	position: absolute;
-	max-width: 390px;
-	width: 80%;
-	height: 20%;
-	bottom: 65px;
+	width: 100%;
+	bottom: var(--mobile-nav-height);
+	right: 0;
+	text-align: center;
 	background: #efe9f5;
-	border-radius: 1.5rem;
+	border-top-right-radius: 2rem;
+	border-top-left-radius: 2rem;
 	z-index: 100;
 	padding: 2rem;
 }
