@@ -8,11 +8,8 @@ describe('Desktop NavBar Navigation', () => {
 		cy.get('#__next > div.TopBar_top-nav__GaLD6')
 			.find('a')
 			.each(($link) => {
-				const href = $link.prop('href');
-				cy.wrap($link)
-					.click()
-					.url()
-					.should('equal', href);
+				const href = $link.prop('href')
+				cy.wrap($link).click().url().should('equal', href)
 			})
 	})
 })

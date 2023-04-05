@@ -21,19 +21,22 @@ describe('DatePrinter can render yesterday', () => {
 		const yesterday = addDays(date, -1)
 		const yesterdayDate = format(yesterday, 'EEEE do MMMM')
 
-		cy.get('div').should('have.class', 'DayItem_day__5kp2A').and('contain', yesterdayDate)
+		cy.get('div')
+			.should('have.class', 'DayItem_day__5kp2A')
+			.and('contain', yesterdayDate)
 	})
 })
 
 describe('DatePrinter can render tomorrow', () => {
-  it("displays tomorrow's date in the correct format", () => {
-    cy.visit('http://localhost:3000/days')
-    cy.wait(1000)
+	it("displays tomorrow's date in the correct format", () => {
+		cy.visit('http://localhost:3000/days')
+		cy.wait(1000)
 
-    const tomorrow = addDays(date, 1)
-    const tomorrowDate = format(tomorrow, 'EEEE do MMMM')
-    
-    cy.get('div').should('have.class', 'DayItem_day__5kp2A').and('contain', tomorrowDate)
-  })
+		const tomorrow = addDays(date, 1)
+		const tomorrowDate = format(tomorrow, 'EEEE do MMMM')
+
+		cy.get('div')
+			.should('have.class', 'DayItem_day__5kp2A')
+			.and('contain', tomorrowDate)
+	})
 })
-
