@@ -83,3 +83,32 @@ export function reduceUserPoints(userId, points) {
 }
 
 // const result = reduceUserPoints(1, 20) //avatarId, userId
+
+const get_user_profile = db.prepare(
+	/*sql*/
+	`
+  SELECT users_profiles.user_points, user_avatars.id, user_avatars.avatar_id, avatars.*
+  FROM users_profiles
+  LEFT JOIN user_avatars ON users_profiles.user_avatar = user_avatars.id
+  LEFT JOIN avatars ON user_avatars.avatar_id = avatars.id
+  WHERE users_profiles.user_id = ?
+  `
+)
+
+export function getUserProfile(userId) {
+	const result = get_user_profile.all(userId)
+	if (result.length === 0) return null
+	const userProfile = {
+		userPoints: result[0].user_points,
+		userAvatar: {
+			id: result[0].id,
+			avatarId: result[0].avatar_id,
+			name: result[0].name,
+			img_src: result[0].img_src
+		}
+	}
+	return userProfile
+}
+
+// const result = getUserProfile(1)
+// console.log(result)
