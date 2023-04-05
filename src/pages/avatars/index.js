@@ -8,7 +8,6 @@ export default function AvatarShop({ avatars }) {
 	const [avatarsList, setAvatarsList] = useState(avatars)
 	const buyAvatarHandler = async (avatar) => {
 		const userId = 1
-		console.log(avatar)
 		const response = await fetch('/api/add-avatars', {
 			method: 'PUT',
 			headers: {
@@ -23,7 +22,6 @@ export default function AvatarShop({ avatars }) {
 		})
 
 		if (response.ok) {
-			console.log('ok , should update now the list')
 			setAvatarsList((currentAvatars) =>
 				currentAvatars.filter((avatarEl) => avatarEl.id !== avatar.id)
 			)

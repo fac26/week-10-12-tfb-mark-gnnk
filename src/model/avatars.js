@@ -37,4 +37,4 @@ export function getAvatarsNotAssignedToUser(userId) {
 }
 
 // const result = getAvatarsNotAssignedToUser(1)
-// console.log(result)
+

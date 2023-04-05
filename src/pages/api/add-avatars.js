@@ -2,13 +2,11 @@ import { reduceUserPoints } from 'model/user-profile'
 import { addUserAvatar } from 'model/avatars'
 
 export default async function handler(req, res) {
-	console.log(req)
 	if (req.method !== 'PUT') {
 		return res.status(405).json({ error: 'Method Not Allowed' })
 	}
 
 	const { userId, avatarId, points } = req.body
-	console.log(userId, avatarId, points)
 	try {
 		await addUserAvatar(userId, avatarId)
 		await reduceUserPoints(userId, points)

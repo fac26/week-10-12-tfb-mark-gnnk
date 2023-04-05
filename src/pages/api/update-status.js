@@ -2,15 +2,12 @@ import { updateTaskStatus } from 'model/tasks'
 import { updateUserPoints } from 'model/user-profile'
 
 export default async function handler(req, res) {
-	console.log(req)
 	if (req.method !== 'PUT') {
 		return res.status(405).json({ error: 'Method Not Allowed' })
 	}
-	console.log(req.body, ' update-status!!')
 
 	const { userId, taskId } = req.body
 	const today = new Date().toISOString().split('T')[0] //check the date in backend
-	console.log(today)
 	// if (date == currentDate) {
 	// 	return res.status(405).json({ error: 'Invalit date' })
 	// }

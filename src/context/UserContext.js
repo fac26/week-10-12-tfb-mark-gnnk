@@ -20,7 +20,6 @@ export const UserProvider = ({ children, userId }) => {
 			try {
 				const response = await fetch(`/api/get-user-data?userId=${userId}`)
 				const { userAvatar, userPoints } = await response.json()
-				console.log(userAvatar, userPoints, ' User context data')
 				setPoints(userPoints)
 				setAvatar(userAvatar)
 			} catch (error) {
