@@ -12,7 +12,9 @@
 		"start": "next start",
 		"lint": "next lint",
 		"seedR": "node src/database/seed.js",
-		"seed": "DB_FILE=db.sqlite node src/database/seed.js"
+		"seed": "DB_FILE=db.sqlite node src/database/seed.js",
+		"test": "start-server-and-test dev 3000 cypress",
+		"cypress": "cypress open"
 	},
 	"dependencies": {
 		"@next/font": "13.2.4",
@@ -27,6 +29,8 @@
 	},
 	"devDependencies": {
 		"@iconify/react": "^4.1.0",
-		"prettier": "^2.8.6"
+		"cypress": "^12.9.0",
+		"prettier": "^2.8.6",
+		"start-server-and-test": "^2.0.0"
 	}
 }
