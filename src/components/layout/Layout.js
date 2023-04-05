@@ -28,10 +28,7 @@ export default function Layout({ children }) {
 	}
 	return (
 		<>
-			<TopBar
-				src="/avatars/Avatar-1.png"
-				activePath={activePath}
-			/>
+			<TopBar activePath={activePath} />
 			<div className={styles.main}>{children}</div>
 			<MobileNav activePath={activePath} />
 		</>
