@@ -1,7 +1,7 @@
 import ChallengeCategoryItem from './ChallengeCategoryItem'
 import { useState } from 'react'
-import ConfirmationModal from 'modals/ConfirmationModal'
-import CongratulationsModal from 'modals/CongratulationsModal'
+import ConfirmationModal from 'components/modals/ConfirmationModal'
+import CongratulationsModal from 'components/modals/CongratulationsModal'
 import Backdrop from 'components/UI/Backdrop'
 
 export default function ChallengeCategoryList({ tasks, onCompleted }) {

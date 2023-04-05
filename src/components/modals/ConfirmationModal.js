@@ -1,5 +1,5 @@
 import Button from 'components/UI/Button'
-import Modal from 'UI/Modal'
+import Modal from 'components/UI/Modal'
 import styles from './ConfirmationModal.module.css'
 export default function ConfirmationModal({ show, onConfirm, onCancel }) {
 	if (!show) {
