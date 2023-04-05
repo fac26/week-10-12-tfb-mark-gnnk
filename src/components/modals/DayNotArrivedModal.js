@@ -1,7 +1,7 @@
 import React from 'react'
 import BackButton from 'components/UI/BackButton'
 import styles from './DayNotArrivedModal.module.css'
-import DatePrinter from 'components/Layout/DatePrinter'
+import DatePrinter from 'components/layout/DatePrinter'
 
 function DayNotArrivedModal() {
 	return (

@@ -1,0 +1,13 @@
+.taskContainer {
+	padding: 1rem;
+}
+
+.taskTitle {
+	font-size: 13pt;
+	font-weight: 800;
+	padding-bottom: 0.5rem;
+}
+
+.taskName {
+	font-size: 10pt;
+}

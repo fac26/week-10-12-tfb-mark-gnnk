@@ -13,14 +13,20 @@ export const useUserContext = () => {
 }
 
 export const UserProvider = ({ children, userId }) => {
+	const defaultAvatar = {
+		id: 1,
+		name: 'Avatar 1',
+		img_src: '/avatars/Avatar-1.png',
+		avatar_id: 1
+	}
 	const [points, setPoints] = useState(0)
-	const [avatar, setAvatar] = useState(1)
+	const [avatar, setAvatar] = useState(defaultAvatar)
+
 	useEffect(() => {
 		const fetchInitialUserData = async () => {
 			try {
 				const response = await fetch(`/api/get-user-data?userId=${userId}`)
 				const { userAvatar, userPoints } = await response.json()
-				console.log(userAvatar, userPoints, ' User context data')
 				setPoints(userPoints)
 				setAvatar(userAvatar)
 			} catch (error) {

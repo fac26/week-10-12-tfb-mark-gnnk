@@ -1,9 +1,10 @@
-import { updateUserAvatar } from 'model/user-profile'
+import { addTaskToUser } from 'model/tasks'
 
 export default async function handler(req, res) {
-	const { userId, avatarId } = req.body
+	const { userId, taskId } = req.body
+
 	try {
-		await updateUserAvatar(userId, avatarId)
+		await addTaskToUser(userId, taskId)
 
 		return res.status(200).json('updated')
 	} catch (err) {

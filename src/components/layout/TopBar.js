@@ -1,14 +1,11 @@
 import styles from './TopBar.module.css'
 import DesktopNav from './DesktopNav'
 import UserBar from './UserBar'
-function TopBar({ points, src }) {
+function TopBar({ points }) {
 	return (
 		<div className={styles['top-nav']}>
 			<DesktopNav />
-			<UserBar
-				points={points}
-				src={src}
-			/>
+			<UserBar points={points} />
 		</div>
 	)
 }
