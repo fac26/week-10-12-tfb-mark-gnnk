@@ -32,7 +32,6 @@ function UserBar() {
 						</span>
 					</span>
 				</Link>
-
 			</div>
 		</div>
 	)
