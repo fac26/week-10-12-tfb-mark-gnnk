@@ -36,13 +36,38 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Please `clone` this repo to your local machine
 
-Please run `npm install` to install all dependencies
+- To clone the repo you must first open Visual Studio Code
+- In the top bar select the Terminal menu and select the New Terminal Menu. It should look like the below image.
+![image](https://user-images.githubusercontent.com/101563800/232327791-efa8dbc3-17f5-4232-89b2-b0f9e6b2e2ac.png)
 
-Please run `npm run seedR` to seed the database on a Windows PC
+- You should now see a terminal at the bottom of your screen. Similar to the below image
+![image](https://user-images.githubusercontent.com/101563800/232327857-4d241aa9-bc85-40b1-a1ff-0a9dc6b829c8.png)
 
-Please run `npm run seed` to seed the database on a MAC
+- Within this terminal you can use the command `cd` followed by the name of the folder you want to go into. It should look like the below.
+![image](https://user-images.githubusercontent.com/101563800/232328387-68473f30-8bb3-4364-9a93-c90092b115be.png)
 
-Please run `npm run dev` to run the app
+- Press enter and you will now be in that folder.
+
+**You now have to clone your repository to this folder.**
+
+- Type `git clone` into the terminal followed by the URL of where you are getting the files from. It should look like the below image
+![image](https://user-images.githubusercontent.com/101563800/232328538-46636844-2100-4b17-ae8c-50f9f8c4994f.png)
+
+- Press enter and it will download all the files for the project from GitHub.
+
+**You now have to install any external dependencies that have been used in the project**
+
+- Type `npm install` and press enter to install all dependencies. **This is will take a few minutes**
+
+** You can now fill a database with example data for you to work from**
+
+- If you are using a Windows PC then type `npm run seedR` and press enter.
+
+- If you are using a MAC then type `npm run seed` and press enter.
+
+** Finally, to run the app**
+
+- Type in `npm run dev` in the terminal and press enter.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
